@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import { postImage } from '../../apiUtils'
+import FoundationList from './FoundationList';
 
 export default class Cloudinary extends Component {
+
+    state = { 
+        foundations: [],
+        loading: true
+    }
+
     showWidget = () => {
         let widget = window.cloudinary.createUploadWidget({ 
            cloudName: `skincode`,
@@ -21,7 +28,9 @@ export default class Cloudinary extends Component {
               console.log(result.info.url, 'here is your new link!'); 
               //once we get the url here, we want to send it to the backend???
               //can I call my postImage function here and use result.info.url as the parameter?
-              postImage(result.info.url)
+              postImage(result.info.url).then(makeupData => this.setState({
+                  foundations: makeupData
+              }));
         } 
         // else { 
         //     console.log( `Uh oh!, it looks like ${error}, please try again!`);
@@ -29,6 +38,7 @@ export default class Cloudinary extends Component {
         });
         widget.open()
       }
+
 
     render() {
         return (
@@ -42,7 +52,10 @@ export default class Cloudinary extends Component {
                     <li>Let us do the rest!!!</li>
                 </ol>
                 <button onClick={this.showWidget}>Upload Image</button>
-                <div></div>
+                {/* <div>{JSON.stringify(this.state.foundations)}</div> */}
+                <FoundationList
+                    mapFoundations={this.state.foundations}/>
+               
             </div>
         )
     }
