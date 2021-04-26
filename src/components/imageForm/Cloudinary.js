@@ -42,16 +42,16 @@ export default class Cloudinary extends Component {
 
     render() {
         return (
-            <div>
-                 <div>Are you ready to find your SkinCode()?</div>
-                <ol>
-                    <li>Take a Selfie</li>
-                    <li>Make sure you are in natural lighting...we want to find your perfect swatch!</li>
-                    <li>Use our crop feature just to get your face</li>
-                    <li>Upload your picture</li>
-                    <li>Let us do the rest!!!</li>
-                </ol>
-                <button onClick={this.showWidget}>Upload Image</button>
+            <div className="instructions">
+                 <div className="title">Are you ready to find your SkinCode()?</div>
+                <ul className="steps">
+                    <li>1) Take a Selfie</li>
+                    <li>2) Make sure you are in natural lighting...we want to find your perfect swatch!</li>
+                    <li>3) Use our crop feature just to get your face</li>
+                    <li>4) Upload your picture</li>
+                    <li>5) Let us do the rest!!!</li>
+                </ul>
+                <button className="upload" onClick={this.showWidget}>Upload Image</button>
                 {/* <div>{JSON.stringify(this.state.foundations)}</div> */}
                 <FoundationList
                     mapFoundations={this.state.foundations}/>

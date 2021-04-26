@@ -5,7 +5,7 @@ export default class FoundationList extends Component {
     render() {
         return (
             <div className="foundation-box">
-                <ul>
+                <ul className="foundation">
                     {this.props.mapFoundations.map(oneFoundation => <Foundation
                         key={oneFoundation.hex}
                         foundationProp={oneFoundation}/>)}
