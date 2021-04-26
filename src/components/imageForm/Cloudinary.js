@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { postImage } from '../../apiUtils'
+import FoundationList from './FoundationList';
 
 export default class Cloudinary extends Component {
 
@@ -51,8 +52,10 @@ export default class Cloudinary extends Component {
                     <li>Let us do the rest!!!</li>
                 </ol>
                 <button onClick={this.showWidget}>Upload Image</button>
-                <div>{JSON.stringify(this.state.foundations)}</div>
-                <div></div>
+                {/* <div>{JSON.stringify(this.state.foundations)}</div> */}
+                <FoundationList
+                    mapFoundations={this.state.foundations}/>
+               
             </div>
         )
     }
