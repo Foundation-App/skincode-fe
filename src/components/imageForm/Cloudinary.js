@@ -21,7 +21,7 @@ export default class Cloudinary extends Component {
               console.log(result.info.url, 'here is your new link!'); 
               //once we get the url here, we want to send it to the backend???
               //can I call my postImage function here and use result.info.url as the parameter?
-                postImage(result.info.url)
+              postImage(result.info.url)
         } 
         // else { 
         //     console.log( `Uh oh!, it looks like ${error}, please try again!`);
