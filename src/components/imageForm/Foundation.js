@@ -1,6 +1,27 @@
 import React, { Component } from 'react';
+import { postFavorites, getUserFromLocalStorage } from '../../apiUtils'
+// postFavorites
+
 
 export default class Foundation extends Component {
+
+  state = { 
+    makeup_name: this.props.foundationProp.name,
+    username: getUserFromLocalStorage(), //username equals to user ID in local storage
+}
+
+handleSubmit = async e => {
+  e.preventDefault();
+
+  await postFavorites(this.state.makeup_name, Number(this.state.username));
+
+  console.log(this.state.makeup_name, 'MAKEUP NAME')
+  console.log(this.state.username.id, 'USERNAME')
+};
+
+
+
+
   render() {
     return (
       <div className="foundation-box">
@@ -28,6 +49,9 @@ export default class Foundation extends Component {
               className="color"
               disabled
             ></button>
+
+            <button onClick={this.handleSubmit}>Like Button</button>
+
           </li>{' '}
         </ul>
       </div>
