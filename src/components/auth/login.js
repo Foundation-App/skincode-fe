@@ -47,8 +47,8 @@ export default class loginPage extends Component {
 
       putUserInLocalStorage(user);
       console.log('YOU ARE LOGGED IN');
-
-      return user;
+      // return user;
+      window.location.replace('/findmyskincode');
     } catch (err) {
       console.log(err);
     }

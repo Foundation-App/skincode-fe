@@ -55,7 +55,8 @@ export default class signupPage extends Component {
     try {
       const user = await signup(this.state.name, this.state.email, this.state.password);
       putUserInLocalStorage(user)
-      return user;
+      // return user;
+      window.location.replace('/login');
     } catch (err) {
       console.log(err);
     }

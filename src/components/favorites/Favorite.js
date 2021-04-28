@@ -29,7 +29,7 @@ export default class Favorite extends Component {
                         disabled
                         ></button>
 
-                    <button onClick={this.handleSubmit}>Like Button</button>
+                    {/* <button onClick={this.handleSubmit}>Like Button</button> */}
 
                     </li>{' '}
                 </ul> 
