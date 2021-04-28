@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { getFavoritesById, getUserFromLocalStorage } from '../../apiUtils';
+import { getFavoritesById, getUserFromLocalStorage, getCloudFromLocalStorage } from '../../apiUtils';
 import FavoriteList from './FavoriteList';
 
 export default class FavoritesPage extends Component {
   state = {
     favoriteFoundation: [],
     loading: true,
-    userId: 1
+    userId: 1,
+    cloudinarylink: getCloudFromLocalStorage()
+
   };
 
   //   componentDidMount = async () => {
@@ -22,6 +24,17 @@ export default class FavoritesPage extends Component {
     })
     
   };
+
+  // cloudinary = async () => { 
+  //   const cloudinaryLink = await getCloudFromLocalStorage()
+  //   // const userId = Number(user.id);
+  //   console.log(cloudinaryLink);
+  //   this.setState({
+  //     cloudinarylink: cloudinaryLink
+  //   })
+    
+  // };
+  
 
   handleFavorites = async () => {
     // console.log(user);
