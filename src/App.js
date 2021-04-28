@@ -12,12 +12,24 @@ import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
 import PrivateRoute from './components/auth/PrivateRoute'
 import { getUserFromLocalStorage, putUserInLocalStorage } from './apiUtils';
+import { saveCookies } from 'superagent';
 
 export default class App extends Component {
   state = { 
     user: getUserFromLocalStorage()
   }
 
+  handleUserChange = (user) => {
+    this.setState({ user })
+
+    putUserInLocalStorage(user)
+  };
+
+  handleLogout = () => { 
+    this.handleUserChange();
+    sessionStorage.clear();
+    // saveCookies.clear
+  }
   
 
 

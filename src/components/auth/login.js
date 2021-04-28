@@ -32,6 +32,7 @@ export default class loginPage extends Component {
   handlePasswordChange = (e) => {
     e.preventDefault();
     console.log(e.target.value);
+    console.log(this.state.error)
 
     this.setState({
       password: e.target.value
@@ -47,14 +48,23 @@ export default class loginPage extends Component {
 
       putUserInLocalStorage(user);
       console.log('YOU ARE LOGGED IN');
+      
       // return user;
       window.location.replace('/findmyskincode');
     } catch (err) {
-      console.log(err);
+       await this.setState({ error: err.response.body.message});
     }
   };
 
   render() {
+    let err_comp;
+    let error =  this.state.error
+    if (error) {
+      err_comp = <h5 style={{ color: 'red' }}> Uh oh, login failed. Please try again.</h5>
+    } 
+    else {
+      err_comp = "";
+    }
     return (
       <div>
       {/* <div>
@@ -86,6 +96,7 @@ export default class loginPage extends Component {
                   <FormLabel htmlFor='for'>Password</FormLabel>
                   <FormInput onChange={this.handlePasswordChange}type='password' required />
                   <FormButton type='submit' onClick={this.onLoginSubmit} >Login</FormButton>
+                  {err_comp}
                 </Form>
               </FormContent>
             </FormWrap>
