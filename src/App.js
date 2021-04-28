@@ -6,6 +6,7 @@ import Cloudinary from './components/imageForm/Cloudinary';
 // import Router from 'react-router-dom';
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
+import FavoritesPage from './components/favorites/FavoritesPage';
 
 export default class App extends Component {
   render() {
@@ -15,9 +16,10 @@ export default class App extends Component {
         <header>
           <img className="logo" src={logo} alt="logo" />
         </header>
-        < Cloudinary />
-        < Login />
-        < Signup />
+        <Cloudinary />
+        <Login />
+        <Signup />
+        <FavoritesPage />
         {/* </Router> */}
       </div>
     );
