@@ -91,7 +91,7 @@ export function getUserFromLocalStorage() {
 
   user = JSON.parse(user);
 
-  console.log(user.id);
+  console.log(typeof user.id, 'WHERE ARE YOU');
 
   return user.id;
 }

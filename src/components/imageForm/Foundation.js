@@ -49,10 +49,10 @@ handleSubmit = async e => {
               className="color"
               disabled
             ></button>
-
-            <button onClick={this.handleSubmit}>Like Button</button>
-
-          </li>{' '}
+          </li>
+          <li>
+          <button className="like" onClick={this.handleSubmit}>❤️</button>
+          </li>
         </ul>
       </div>
     );
