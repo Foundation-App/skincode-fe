@@ -8,7 +8,7 @@ export default class FoundationList extends Component {
         <ul className="foundation">
           {this.props.mapFoundations.map((oneFoundation) => (
             <Foundation
-              key={oneFoundation.hex}
+              key={oneFoundation.hex + oneFoundation.name}
               foundationProp={oneFoundation}
             />
           ))}
