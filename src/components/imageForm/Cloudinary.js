@@ -8,7 +8,7 @@ export default class Cloudinary extends Component {
         foundations: [],
         loading: true
     }
-//==============
+
     showWidget = () => {
         let widget = window.cloudinary.createUploadWidget({ 
            cloudName: `skincode`,
