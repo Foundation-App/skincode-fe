@@ -56,16 +56,17 @@ export function putUserInLocalStorage(user) {
   localStorage.setItem('USER', JSON.stringify(user));
 }
 
+
 //GET FAVORITES
 
-export async function postFavorites(makeup_name, username) {
-  console.log({ makeup_name, username }, 'POST FAVORITES FUNCTION UTILS');
+export async function postFavorites(username, makeup_name,  image_link, brand, color, hex, product_link) {
+  console.log({ username, makeup_name,  image_link, brand, color, hex, product_link }, 'POST FAVORITES FUNCTION UTILS');
   const response = await request
     .post(`${localURL}/api/favorites`)
     .withCredentials()
     //.set('Authorization', token)
     .set('Accept', 'application/json')
-    .send({ makeup_name, username });
+    .send({ username, makeup_name,  image_link, brand, color, hex, product_link });
 
   return response.body;
 }
