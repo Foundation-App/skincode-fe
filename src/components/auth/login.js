@@ -21,8 +21,6 @@ export default class loginPage extends Component {
 
   handleEmailChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(this.state.email);
 
     this.setState({
       email: e.target.value
@@ -31,9 +29,7 @@ export default class loginPage extends Component {
 
   handlePasswordChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(this.state.error)
-
+   
     this.setState({
       password: e.target.value
     });
@@ -41,14 +37,11 @@ export default class loginPage extends Component {
 
   onLoginSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // const user = await login((this.state.email, this.state.password), this.props.user.token);
       const user = await login((this.state.password, this.state.email));
 
       putUserInLocalStorage(user);
       console.log('YOU ARE LOGGED IN');
-      
       // return user;
       window.location.replace('/findmyskincode');
     } catch (err) {
