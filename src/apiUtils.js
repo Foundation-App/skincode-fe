@@ -56,17 +56,46 @@ export function putUserInLocalStorage(user) {
   localStorage.setItem('USER', JSON.stringify(user));
 }
 
+export function putCloudinaryInLocalStorage(user) {
+  localStorage.setItem('CLOUD', JSON.stringify(user));
+}
+
+export function putDateInLocalStorage(user) {
+  localStorage.setItem('DATE', JSON.stringify(user));
+}
+
+export function getCloudFromLocalStorage() {
+  let user = localStorage.getItem('CLOUD');
+
+  user = JSON.parse(user);
+
+  console.log(user, 'WHERE ARE YOU');
+
+  return user;
+}
+
+export function getDateFromLocalStorage() {
+  let user = localStorage.getItem('DATE');
+
+  user = JSON.parse(user);
+
+  console.log(typeof user, 'WHERE ARE YOU');
+
+  return user;
+}
+
+
 
 //GET FAVORITES
 
-export async function postFavorites(username, makeup_name,  image_link, brand, color, hex, product_link) {
-  console.log({ username, makeup_name,  image_link, brand, color, hex, product_link }, 'POST FAVORITES FUNCTION UTILS');
+export async function postFavorites(username, makeup_name,  image_link, brand, color, hex, product_link, date_added) {
+  console.log({ username, makeup_name,  image_link, brand, color, hex, product_link, date_added }, 'POST FAVORITES FUNCTION UTILS');
   const response = await request
     .post(`${localURL}/api/favorites`)
     .withCredentials()
     //.set('Authorization', token)
     .set('Accept', 'application/json')
-    .send({ username, makeup_name,  image_link, brand, color, hex, product_link });
+    .send({ username, makeup_name,  image_link, brand, color, hex, product_link, date_added});
 
   return response.body;
 }
