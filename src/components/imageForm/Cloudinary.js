@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { postImage } from '../../apiUtils'
+import { postImage, putCloudinaryInLocalStorage, putDateInLocalStorage } from '../../apiUtils'
 import FoundationList from './FoundationList';
 import NavBar from '../HomePage/NavBar';
 import Icon3 from '../../images/logo3.gif';
@@ -19,7 +19,10 @@ export default class Cloudinary extends Component {
 
     state = { 
         foundations: [],
-        loading: true
+        loading: true,
+        cloudinary: '',
+        date: new Date().toLocaleString()
+        
     }
 
     showWidget = () => {
@@ -51,11 +54,21 @@ export default class Cloudinary extends Component {
         (error, result) => {
           if (!error && result && result.event === "success") { 
               console.log(result.info.url, 'here is your new link!'); 
+
+              this.setState({
+                cloudinary: result.info.url
+            })
+
               postImage(result.info.url).then(makeupData => this.setState({
                   foundations: makeupData
-              }));
+              }))
+
+              putCloudinaryInLocalStorage(this.state.cloudinary)
+              putDateInLocalStorage(this.state.date)
+
         } 
-  
+
+
         });
         widget.open()
       }
