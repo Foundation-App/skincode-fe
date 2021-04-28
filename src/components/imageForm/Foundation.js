@@ -6,14 +6,28 @@ import { postFavorites, getUserFromLocalStorage } from '../../apiUtils'
 export default class Foundation extends Component {
 
   state = { 
+    username: getUserFromLocalStorage(), 
     makeup_name: this.props.foundationProp.name,
-    username: getUserFromLocalStorage(), //username equals to user ID in local storage
+    image_link: this.props.foundationProp.image_link,
+    brand: this.props.foundationProp.brand,
+    color: this.props.foundationProp.color,
+    hex: this.props.foundationProp.hex,
+    product_link: this.props.foundationProp.product_link,
+
 }
 
 handleSubmit = async e => {
   e.preventDefault();
 
-  await postFavorites(this.state.makeup_name, Number(this.state.username));
+  await postFavorites(
+    Number(this.state.username), 
+    this.state.makeup_name,
+    this.state.image_link,
+    this.state.brand,
+    this.state.color,
+    this.state.hex,
+    this.state.product_link,
+    );
 
   console.log(this.state.makeup_name, 'MAKEUP NAME')
   console.log(this.state.username.id, 'USERNAME')
@@ -41,6 +55,11 @@ handleSubmit = async e => {
               alt="product"
             />
           </li>
+
+          <li>
+              <a href={this.props.foundationProp.product_link}>Buy Now!</a>
+          </li>
+
           <li>{this.props.foundationProp.brand}</li>
           <li>{this.props.foundationProp.color}</li>
           <li>

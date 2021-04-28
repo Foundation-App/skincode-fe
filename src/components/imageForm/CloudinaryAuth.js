@@ -6,7 +6,7 @@ export default class CloudinaryAuth extends Component {
 
     state = { 
         foundations: [],
-        loading: true
+        loading: true,
     }
 //==============
 showWidget = () => {
@@ -36,10 +36,12 @@ showWidget = () => {
     }, 
     (error, result) => {
       if (!error && result && result.event === "success") { 
-          console.log(result.info.url, 'here is your new link!'); 
+          console.log(result.info.url, 'here is your new link! NEW LINK========='); 
+
           postAuthImage(result.info.url, this.props.user.token).then(makeupData => this.setState({
               foundations: makeupData
           }));
+
     } 
 
     });
