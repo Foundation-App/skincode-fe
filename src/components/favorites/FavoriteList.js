@@ -6,9 +6,12 @@ export default class FavoriteList extends Component {
     return (
       <div className="favorite-big-box">
         <ul className="favorite">
-          {this.props.mapFavorites.map((oneFavorite) => <Favorite 
-          key={oneFavorite.hex} 
-          favoriteProp={oneFavorite}/>)}
+          {this.props.mapFavorites.map((oneFavorite) => (
+            <Favorite
+              key={oneFavorite.hex + oneFavorite.name}
+              favoriteProp={oneFavorite}
+            />
+          ))}
         </ul>
       </div>
     );
