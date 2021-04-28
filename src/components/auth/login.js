@@ -31,10 +31,10 @@ export default class loginPage extends Component {
 
     try {
       // const user = await login((this.state.email, this.state.password), this.props.user.token);
-      const user = await login((this.state.email, this.state.password));
+      const user = await login((this.state.password, this.state.email));
 
-      putUserInLocalStorage(user)
-      console.log('YOU ARE LOGGED IN')
+      putUserInLocalStorage(user);
+      console.log('YOU ARE LOGGED IN');
 
       return user;
     } catch (err) {

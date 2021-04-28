@@ -31,7 +31,7 @@ export async function postAuthImage(photo, token) {
 }
 
 export async function login(email, password) {
-  console.log({email, password}, 'email,pass');
+  console.log({ email, password }, 'email,pass');
   const response = await request
     .post(`${localURL}/auth/login`)
     .withCredentials()
@@ -42,44 +42,56 @@ export async function login(email, password) {
 }
 
 export async function signup(name, email, password) {
-    console.log(name, email, password, 'name, email, pass');
-    const response = await request
-      .post(`${localURL}/auth/signup`)
-      .withCredentials()
-      .send({name, email, password });
-  
-    console.log(response.body, 'This is the signup function');
-    return response.body;
-  }
+  console.log(name, email, password, 'name, email, pass');
+  const response = await request
+    .post(`${localURL}/auth/signup`)
+    .withCredentials()
+    .send({ name, email, password });
 
+  console.log(response.body, 'This is the signup function');
+  return response.body;
+}
 
+export function putUserInLocalStorage(user) {
+  localStorage.setItem('USER', JSON.stringify(user));
+}
 
-  export function putUserInLocalStorage(user) {
-    localStorage.setItem('USER', JSON.stringify(user));
-  }
+//GET FAVORITES
 
-  //GET FAVORITES
+export async function postFavorites(makeup_name, username) {
+  console.log({ makeup_name, username }, 'POST FAVORITES FUNCTION UTILS');
+  const response = await request
+    .post(`${localURL}/api/favorites`)
+    .withCredentials()
+    //.set('Authorization', token)
+    .set('Accept', 'application/json')
+    .send({ makeup_name, username });
 
-  export async function postFavorites(makeup_name, username) {
-      console.log({ makeup_name, username }, 'POST FAVORITES FUNCTION UTILS')
-    const response = await request
-      .post(`${localURL}/api/favorites`)
-      .withCredentials()
-      //.set('Authorization', token)
-      .set('Accept', 'application/json')
-      .send({ makeup_name, username });
-    
-    return response.body;
-  }
+  return response.body;
+}
 
+export async function getFavorites() {
+  const response = await request
+    .get(`${localURL}/api/favorites`)
+    .withCredentials();
 
+  return response.body;
+}
+
+export async function getFavoritesById(id) {
+  const response = await request
+    .get(`${localURL}/api/favorites/${id}`)
+    .withCredentials();
+
+  return response.body;
+}
 
 export function getUserFromLocalStorage() {
-    let user = localStorage.getItem('USER');
-  
-    user = JSON.parse(user);
+  let user = localStorage.getItem('USER');
 
-    console.log(user.id)
+  user = JSON.parse(user);
 
-    return user.id
-  }
+  console.log(user.id);
+
+  return user.id;
+}
