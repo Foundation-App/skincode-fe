@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
 import { login, putUserInLocalStorage } from '../../apiUtils';
+import {
+  Container,
+  FormWrap,
+  Icon,
+  FormContent,
+  Form,
+  FormH1,
+  FormLabel,
+  FormInput,
+  FormButton,
+} from './authStyling';
+import logo from '../../images/skincodelogo.gif'
 
 export default class loginPage extends Component {
   state = {
@@ -45,6 +57,7 @@ export default class loginPage extends Component {
   render() {
     return (
       <div>
+      {/* <div>
         <form>
           <input
             type="email"
@@ -60,7 +73,24 @@ export default class loginPage extends Component {
             Login
           </button>
         </form>
-      </div>
+      </div> */}
+            <Container>
+            <FormWrap>
+              <Icon to='/'>
+                <img className="logo" src={logo} alt="logo"></img></Icon>
+              <FormContent>
+                <Form action='#'>
+                  <FormH1>Sign in to your account</FormH1>
+                  <FormLabel htmlFor='for'>Email</FormLabel>
+                  <FormInput onChange={this.handleEmailChange} type='email' required />
+                  <FormLabel htmlFor='for'>Password</FormLabel>
+                  <FormInput onChange={this.handlePasswordChange}type='password' required />
+                  <FormButton type='submit' onClick={this.onLoginSubmit} >Login</FormButton>
+                </Form>
+              </FormContent>
+            </FormWrap>
+          </Container>
+          </div>
     );
   }
 }

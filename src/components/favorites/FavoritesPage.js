@@ -33,7 +33,7 @@ export default class FavoritesPage extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleFavorites}>Favorite Button</button>
+        <button onClick={this.handleFavorites}>Check out your favorites!</button>
         {/* <div>{JSON.stringify(this.state.favoriteFoundation)}</div> */}
         <FavoriteList
         mapFavorites={this.state.favoriteFoundation}/>

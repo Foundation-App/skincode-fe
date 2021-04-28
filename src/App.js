@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import logo from '../src/skincode-logo.gif';
 import Cloudinary from './components/imageForm/Cloudinary';
 import {
   BrowserRouter as Router, 
@@ -10,6 +9,7 @@ import {
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
+import HomePage from './components/HomePage/HomePage';
 
 export default class App extends Component {
   render() {
@@ -17,8 +17,13 @@ export default class App extends Component {
       <div>
       <Router>
           <Switch>
-              <Route 
+            <Route 
                   path="/" 
+                  exact
+                  render={(routerProps) => <HomePage {...routerProps}/>} 
+              />
+              <Route 
+                  path="/signup" 
                   exact
                   render={(routerProps) => <Signup {...routerProps}/>} 
               />
