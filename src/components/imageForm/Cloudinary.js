@@ -10,6 +10,7 @@ export default class Cloudinary extends Component {
     }
 
     showWidget = () => {
+        this.setState({foundations: [] });
         let widget = window.cloudinary.createUploadWidget({ 
            cloudName: `skincode`,
            uploadPreset: `test_preset`, 
