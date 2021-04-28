@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import Video from '../../videos/SkinCode.mp4';
+
 import {
   MainContainer,
   MainBg,
@@ -17,7 +17,7 @@ function MainSection() {
   return (
     <MainContainer id='home'>
       <MainBg>
-        <VideoBg playsInline autoPlay loop muted src={Video} type='video/mp4' />
+        <VideoBg playsInline autoPlay loop muted src="https://res.cloudinary.com/techhire/video/upload/v1619632998/yt1s.com_-_SkinCode_1080p_hohxaj.mp4" type='video/mp4' />
       </MainBg>
       <MainContent>
         <MainH1>Welcome to SkinCode()</MainH1>
