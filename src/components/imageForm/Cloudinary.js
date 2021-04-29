@@ -65,16 +65,14 @@ export default class Cloudinary extends Component {
             })
 
               postImage(result.info.url).then(makeupData => this.setState({
-                  foundations: makeupData
+                bestFoundations: makeupData[0],
+                goodFoundations: makeupData[1]
               }))
 
               putCloudinaryInLocalStorage(this.state.cloudinary)
               putDateInLocalStorage(this.state.date)
 
         } 
-
-
-        });
 
       }
     );
