@@ -3,6 +3,8 @@ import NavBar from './NavBar';
 import HeroSection from './mainSection';
 
 
+
+
 export default class HomePage extends Component {
   render() {
     return (

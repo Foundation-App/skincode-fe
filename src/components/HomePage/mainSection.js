@@ -22,7 +22,7 @@ function MainSection() {
       <MainContent>
         <MainH1>Welcome to SkinCode()</MainH1>
         <MainP>
-          Need to figure out what we're gonna write here.
+          An AI powered app designed to help you find your perfect foundation match.
         </MainP>
         <MainBtnLink to='/signup' className="main">Get Started!</MainBtnLink>
       </MainContent>

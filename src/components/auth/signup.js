@@ -10,8 +10,10 @@ import {
   FormLabel,
   FormInput,
   FormButton,
+  FormImage,
 } from './authStyling';
 import logo from '../../images/skincodelogo.gif'
+import heart from '../../images/wait.gif'
 
 export default class signupPage extends Component {
   state = {
@@ -95,7 +97,8 @@ export default class signupPage extends Component {
           <Icon to='/'><img className="logo" src={logo} alt="logo"></img></Icon>
             <FormContent>
               <Form action='#'>
-                    <FormH1>Sign Up to your account</FormH1>
+                    <FormImage src={heart} alt="heart"></FormImage>
+                    <FormH1>Sign Up for an account</FormH1>
                     <FormLabel>Name</FormLabel>
                     <FormInput onChange={this.handleNameChange} type='fname' required />
                     <FormLabel>Email</FormLabel>
