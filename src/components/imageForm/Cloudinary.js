@@ -57,16 +57,12 @@ export default class Cloudinary extends Component {
       },
       (error, result) => {
         if (!error && result && result.event === 'success') {
-          console.log(result.info.url, 'here is your new link!');
-
           this.setState({
             cloudinary: result.info.url
           });
-          
-          postImage(result.info.url).then((makeupData) => {
-            console.log(makeupData);
-            if (makeupData.length > 0) {
 
+          postImage(result.info.url).then((makeupData) => {
+            if (makeupData.length > 0) {
               this.setState({
                 bestFoundations: makeupData[0],
                 goodFoundations: makeupData[1]
@@ -82,11 +78,7 @@ export default class Cloudinary extends Component {
     widget.open();
   };
 
-  
-
   render() {
-    console.log(JSON.stringify(document.cookie), 'CAN YOU SEE THIS COOKIE');
-
     return (
       <div>
         <NavBar></NavBar>

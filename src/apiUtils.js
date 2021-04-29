@@ -13,8 +13,6 @@ export async function postImage(photo, token) {
     .set('Authorization', token)
     .send([{ input: photo }]);
 
-  console.log(response.body, 'API');
-
   return response.body;
 }
 
@@ -22,43 +20,30 @@ export async function postAuthImage(photo) {
   const response = await request
     .post(`${localURL}/api/imageurl`)
     .withCredentials()
-    // .set('Authorization', token)
     .send([{ input: photo }]);
-
-  console.log(response.body, 'API LOOOK');
 
   return response.body;
 }
 
 export async function login(email, password) {
-  console.log({ email, password }, 'email,pass');
   const response = await request
     .post(`${localURL}/auth/login`)
     .withCredentials()
     .send({ email, password });
 
-  console.log(response.body, 'POOP');
   return response.body;
 }
 
-//TEST LOGOUT BY EXPIRING COOKIE (GET EMAIL AND PASS FROM LOCAL STORAGE)
 export async function logout() {
-  await request
-    .post(`${localURL}/auth/logout`)
-    .withCredentials()
-  
+  await request.post(`${localURL}/auth/logout`).withCredentials();
 }
-//logout end =======================
-
 
 export async function signup(name, email, password) {
-  console.log(name, email, password, 'name, email, pass');
   const response = await request
     .post(`${localURL}/auth/signup`)
     .withCredentials()
     .send({ name, email, password });
 
-  console.log(response.body, 'This is the signup function');
   return response.body;
 }
 
@@ -78,9 +63,6 @@ export function getCloudFromLocalStorage() {
   let user = localStorage.getItem('CLOUD');
 
   user = JSON.parse(user);
-
-  //   console.log(user, 'WHERE ARE YOU');
-
   return user;
 }
 
@@ -89,12 +71,8 @@ export function getDateFromLocalStorage() {
 
   user = JSON.parse(user);
 
-  //   console.log(typeof user, 'WHERE ARE YOU');
-
   return user;
 }
-
-//GET FAVORITES
 
 export async function postFavorites(
   username,
@@ -106,23 +84,9 @@ export async function postFavorites(
   product_link,
   date_added
 ) {
-  console.log(
-    {
-      username,
-      makeup_name,
-      image_link,
-      brand,
-      color,
-      hex,
-      product_link,
-      date_added
-    },
-    'POST FAVORITES FUNCTION UTILS'
-  );
   const response = await request
     .post(`${localURL}/api/favorites`)
     .withCredentials()
-    //.set('Authorization', token)
     .set('Accept', 'application/json')
     .send({
       username,
@@ -159,6 +123,5 @@ export function getUserFromLocalStorage() {
 
   user = JSON.parse(user);
 
-//THIS IS IMPORTANT WE CHANGED FROM USER.ID TO USER
   return user;
 }

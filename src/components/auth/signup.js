@@ -10,10 +10,10 @@ import {
   FormLabel,
   FormInput,
   FormButton,
-  FormImage,
+  FormImage
 } from './authStyling';
-import logo from '../../images/skincodelogo.gif'
-import heart from '../../images/wait.gif'
+import logo from '../../images/skincodelogo.gif';
+import heart from '../../images/wait.gif';
 
 export default class signupPage extends Component {
   state = {
@@ -40,7 +40,6 @@ export default class signupPage extends Component {
 
   handlePasswordChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
 
     this.setState({
       password: e.target.value
@@ -50,70 +49,70 @@ export default class signupPage extends Component {
   onSignupSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await signup(this.state.name, this.state.email, this.state.password);
-      putUserInLocalStorage(user)
-      // return user;
+      const user = await signup(
+        this.state.name,
+        this.state.email,
+        this.state.password
+      );
+      putUserInLocalStorage(user);
+
       window.location.replace('/login');
     } catch (err) {
-
-      await this.setState({error: err.response.body.message})
+      await this.setState({ error: err.response.body.message });
     }
   };
 
   render() {
     let error_comp;
-    let error = this.state.error
-    if (error) { 
-      error_comp = <h5 style={{ color: 'red' }}> Uh oh, sign up failed. Please try new credentials.</h5>
-    } else { 
-      error_comp = "";
+    let error = this.state.error;
+    if (error) {
+      error_comp = (
+        <h5 style={{ color: 'red' }}>
+          {' '}
+          Uh oh, sign up failed. Please try new credentials.
+        </h5>
+      );
+    } else {
+      error_comp = '';
     }
     return (
       <div>
-      {/* <div>
-        <form>
-        <input
-            type="name"
-            placeholder="name"
-            onChange={this.handleNameChange}
-          ></input>
-          <input
-            type="email"
-            placeholder="email"
-            onChange={this.handleEmailChange}
-          ></input>
-          <input
-            type="password"
-            placeholder="password"
-            onChange={this.handlePasswordChange}
-          ></input>
-          <button onClick={this.onSignupSubmit} type="submit">
-            Signup
-          </button>
-        </form>
-      </div> */}
-      <Container>
-        <FormWrap>
-          <Icon to='/'><img className="logo" src={logo} alt="logo"></img></Icon>
+        <Container>
+          <FormWrap>
+            <Icon to="/">
+              <img className="logo" src={logo} alt="logo"></img>
+            </Icon>
             <FormContent>
-              <Form action='#'>
-                    <FormImage src={heart} alt="heart"></FormImage>
-                    <FormH1>Sign Up for an account</FormH1>
-                    <FormLabel>Name</FormLabel>
-                    <FormInput onChange={this.handleNameChange} type='fname' required />
-                    <FormLabel>Email</FormLabel>
-                    <FormInput onChange={this.handleEmailChange} type='email' required />
-                    <FormLabel>Password</FormLabel>
-                    <FormInput onChange={this.handlePasswordChange}type='password' required />
-                    <FormButton type='submit' onClick={this.onSignupSubmit} >Sign Up!</FormButton>
-                    {error_comp}
+              <Form action="#">
+                <FormImage src={heart} alt="heart"></FormImage>
+                <FormH1>Sign Up for an account</FormH1>
+                <FormLabel>Name</FormLabel>
+                <FormInput
+                  onChange={this.handleNameChange}
+                  type="fname"
+                  required
+                />
+                <FormLabel>Email</FormLabel>
+                <FormInput
+                  onChange={this.handleEmailChange}
+                  type="email"
+                  required
+                />
+                <FormLabel>Password</FormLabel>
+                <FormInput
+                  onChange={this.handlePasswordChange}
+                  type="password"
+                  required
+                />
+                <FormButton type="submit" onClick={this.onSignupSubmit}>
+                  Sign Up!
+                </FormButton>
+                {error_comp}
               </Form>
             </FormContent>
           </FormWrap>
         </Container>
-              
       </div>
     );
   }
 }
-

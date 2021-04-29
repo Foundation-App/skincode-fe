@@ -5,11 +5,9 @@ import {
   getDateFromLocalStorage
 } from '../../apiUtils';
 
-import { postToFeed } from './fbutils';
-
 //facebook
+// import { postToFeed } from './fbutils';
 
-// postFavorites
 export default class Foundation extends Component {
   state = {
     username: getUserFromLocalStorage(),
@@ -22,16 +20,13 @@ export default class Foundation extends Component {
     date_added: getDateFromLocalStorage()
   };
 
+  // for facebook don't delete
   // handleFbPost = async () => {
   //   postToFeed();
   // };
 
   handleSubmit = async (e) => {
     e.preventDefault();
-
-    // const date_added = await getDateFromLocalStorage()
-
-    //ACCEPT THESE CHANGES NOWWWWWWW
 
     await postFavorites(
       Number(this.state.username.id),
@@ -43,10 +38,6 @@ export default class Foundation extends Component {
       this.state.product_link,
       this.state.date_added
     );
-
-    console.log(this.state.makeup_name, 'MAKEUP NAME');
-    console.log(this.state.username.id, 'USERNAME');
-    console.log(getDateFromLocalStorage(), 'DATE ADDED');
   };
 
   render() {
@@ -65,7 +56,8 @@ export default class Foundation extends Component {
             <img
               className="product-img"
               src={this.props.foundationProp.image_link}
-              alt="product" onerror="this.src='fallback-img.jpg'"
+              alt="product"
+              onerror="this.src='fallback-img.jpg'"
             />
           </li>
 
