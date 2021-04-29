@@ -48,12 +48,6 @@ export const StepsCard = styled.div`
   margin: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: all 0.2s ease-in-out;
-
-  &:hover {
-    transform: scale(1.02);
-    transition: all 0.2s ease-in-out;
-    cursor: pointer;
-  }
 `;
 
 export const StepsIcon = styled.img`

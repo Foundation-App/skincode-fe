@@ -13,7 +13,7 @@ export default class FavoritesPage extends Component {
     favoriteFoundation: [],
     loading: true,
     userId: getUserFromLocalStorage(),
-    cloudinarylink: getCloudFromLocalStorage()
+    cloudinarylink: getCloudFromLocalStorage(),
 
   };
 
