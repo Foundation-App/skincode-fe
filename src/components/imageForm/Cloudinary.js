@@ -63,12 +63,15 @@ export default class Cloudinary extends Component {
             cloudinary: result.info.url
           });
 
-          postImage(result.info.url).then((makeupData) =>
-            this.setState({
-              bestFoundations: makeupData[0],
-              goodFoundations: makeupData[1]
-            })
-          );
+          postImage(result.info.url).then((makeupData) => {
+            console.log(makeupData);
+            if (makeupData.length > 0) {
+              this.setState({
+                bestFoundations: makeupData[0],
+                goodFoundations: makeupData[1]
+              });
+            } else alert('no face detected, please try again');
+          });
 
           putCloudinaryInLocalStorage(this.state.cloudinary);
           putDateInLocalStorage(this.state.date);
