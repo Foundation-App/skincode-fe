@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { postFavorites, getUserFromLocalStorage } from '../../apiUtils'
+import { postFavorites, getUserFromLocalStorage, getDateFromLocalStorage } from '../../apiUtils'
 // postFavorites
 
 
@@ -13,11 +13,14 @@ export default class Foundation extends Component {
     color: this.props.foundationProp.color,
     hex: this.props.foundationProp.hex,
     product_link: this.props.foundationProp.product_link,
-
+    date_added: getDateFromLocalStorage(),
 }
+
 
 handleSubmit = async e => {
   e.preventDefault();
+
+  // const date_added = await getDateFromLocalStorage()
 
   await postFavorites(
     Number(this.state.username), 
@@ -27,10 +30,12 @@ handleSubmit = async e => {
     this.state.color,
     this.state.hex,
     this.state.product_link,
+    this.state.date_added
     );
 
   console.log(this.state.makeup_name, 'MAKEUP NAME')
   console.log(this.state.username.id, 'USERNAME')
+  console.log(getDateFromLocalStorage(), 'DATE ADDED')
 };
 
 
