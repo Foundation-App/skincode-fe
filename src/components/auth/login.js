@@ -38,8 +38,8 @@ export default class loginPage extends Component {
   onLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const user = await login((this.state.password, this.state.email));
-
+      const user = await login(this.state.email, this.state.password);
+      console.log(user);
       putUserInLocalStorage(user);
       console.log('YOU ARE LOGGED IN');
       // return user;
