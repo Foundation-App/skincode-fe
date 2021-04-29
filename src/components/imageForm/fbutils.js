@@ -1,13 +1,14 @@
 const FB = window.FB;
 
-window.fbAsyncInit = function () {
-  FB.init({
-    appId: '1185887611851343',
-    status: true,
-    xfbml: true,
-    version: 'v2.10'
-  });
-};
+
+// window.fbAsyncInit = function () {
+//   FB.init({
+//     appId: '1185887611851343',
+//     status: true,
+//     xfbml: true,
+//     version: 'v2.10'
+//   });
+// };
 
 function postToFeed() {
   // calling the API ...
