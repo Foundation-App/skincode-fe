@@ -21,8 +21,6 @@ export default class loginPage extends Component {
 
   handleEmailChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(this.state.email);
 
     this.setState({
       email: e.target.value
@@ -31,8 +29,7 @@ export default class loginPage extends Component {
 
   handlePasswordChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-
+   
     this.setState({
       password: e.target.value
     });
@@ -40,21 +37,27 @@ export default class loginPage extends Component {
 
   onLoginSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // const user = await login((this.state.email, this.state.password), this.props.user.token);
-      const user = await login((this.state.password, this.state.email));
-
+      const user = await login(this.state.email, this.state.password);
+      console.log(user);
       putUserInLocalStorage(user);
       console.log('YOU ARE LOGGED IN');
-
-      return user;
+      // return user;
+      window.location.replace('/findmyskincode');
     } catch (err) {
-      console.log(err);
+       await this.setState({ error: err.response.body.message});
     }
   };
 
   render() {
+    let err_comp;
+    let error =  this.state.error
+    if (error) {
+      err_comp = <h5 style={{ color: 'red' }}> Uh oh, login failed. Please try again.</h5>
+    } 
+    else {
+      err_comp = "";
+    }
     return (
       <div>
       {/* <div>
@@ -86,6 +89,7 @@ export default class loginPage extends Component {
                   <FormLabel htmlFor='for'>Password</FormLabel>
                   <FormInput onChange={this.handlePasswordChange}type='password' required />
                   <FormButton type='submit' onClick={this.onLoginSubmit} >Login</FormButton>
+                  {err_comp}
                 </Form>
               </FormContent>
             </FormWrap>

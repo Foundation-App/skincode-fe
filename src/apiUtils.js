@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const localURL = 'http://localhost:7893';
+const localURL = 'http://localhost:7894';
 
 export async function getTest() {
   const response = await request.get(`${localURL}/test`);

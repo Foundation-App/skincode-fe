@@ -10,9 +10,31 @@ import Login from './components/auth/login';
 import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
+import PrivateRoute from './components/auth/PrivateRoute'
+import { getUserFromLocalStorage, putUserInLocalStorage } from './apiUtils';
+import { saveCookies } from 'superagent';
 
 export default class App extends Component {
+  state = { 
+    user: getUserFromLocalStorage()
+  }
+
+  handleUserChange = (user) => {
+    this.setState({ user })
+
+    putUserInLocalStorage(user)
+  };
+
+  handleLogout = () => { 
+    this.handleUserChange();
+    sessionStorage.clear();
+    // saveCookies.clear
+  }
+  
+
+
   render() {
+    const { user } = this.state;
     return (
       <div>
       <Router>
@@ -37,20 +59,16 @@ export default class App extends Component {
                   exact
                   render={(routerProps) => <Cloudinary {...routerProps}/>} 
               />
+              <PrivateRoute
+                 path="/myfavorites" 
+                 exact
+                 token={user && user.token}
+                 render={(routerProps) => <FavoritesPage {...routerProps}/>}
+              />
                <Route 
-                  path="/myfavorites" 
-                  exact
+                 
                   render={(routerProps) => <FavoritesPage {...routerProps}/>} 
               />
-                {/* <PrivateRoute 
-                  path="/myfavorites" 
-                  exact
-                  token={user && user.token}
-                  render={(routerProps) => 
-                  <ApodsFavoritesPage
-                    user={this.state.user}
-                    {...routerProps} />} 
-              /> */}
           </Switch>
       </Router>
   </div>
@@ -58,6 +76,14 @@ export default class App extends Component {
     );
   }
 }
+
+// <PrivateRoute
+// path="/playlist"
+// exact
+// token={user && user.token}
+// render={(routerProps) => <Playlist {...routerProps} />}
+// user={this.state.user}
+// />
 
 // return (
 //   <div>

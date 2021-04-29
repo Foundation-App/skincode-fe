@@ -22,8 +22,6 @@ export default class signupPage extends Component {
 
   handleNameChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(this.state.name);
 
     this.setState({
       name: e.target.value
@@ -32,8 +30,6 @@ export default class signupPage extends Component {
 
   handleEmailChange = (e) => {
     e.preventDefault();
-    console.log(e.target.value);
-    console.log(this.state.email);
 
     this.setState({
       email: e.target.value
@@ -51,18 +47,25 @@ export default class signupPage extends Component {
 
   onSignupSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const user = await signup(this.state.name, this.state.email, this.state.password);
       putUserInLocalStorage(user)
-      return user;
+      // return user;
+      window.location.replace('/login');
     } catch (err) {
-      console.log(err);
+
+      await this.setState({error: err.response.body.message})
     }
   };
 
-
   render() {
+    let error_comp;
+    let error = this.state.error
+    if (error) { 
+      error_comp = <h5 style={{ color: 'red' }}> Uh oh, sign up failed. Please try new credentials.</h5>
+    } else { 
+      error_comp = "";
+    }
     return (
       <div>
       {/* <div>
@@ -100,6 +103,7 @@ export default class signupPage extends Component {
                     <FormLabel>Password</FormLabel>
                     <FormInput onChange={this.handlePasswordChange}type='password' required />
                     <FormButton type='submit' onClick={this.onSignupSubmit} >Sign Up!</FormButton>
+                    {error_comp}
               </Form>
             </FormContent>
           </FormWrap>
