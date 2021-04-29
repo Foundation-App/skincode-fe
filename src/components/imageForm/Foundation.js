@@ -31,6 +31,8 @@ export default class Foundation extends Component {
 
     // const date_added = await getDateFromLocalStorage()
 
+    //ACCEPT THESE CHANGES NOWWWWWWW
+
     await postFavorites(
       Number(this.state.username.id),
       this.state.makeup_name,
