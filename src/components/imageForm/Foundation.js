@@ -63,7 +63,7 @@ export default class Foundation extends Component {
             <img
               className="product-img"
               src={this.props.foundationProp.image_link}
-              alt="product"
+              alt="product" onerror="this.src='fallback-img.jpg'"
             />
           </li>
 
