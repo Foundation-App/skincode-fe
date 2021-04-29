@@ -18,11 +18,11 @@ export async function postImage(photo, token) {
   return response.body;
 }
 
-export async function postAuthImage(photo, token) {
+export async function postAuthImage(photo) {
   const response = await request
     .post(`${localURL}/api/imageurl`)
     .withCredentials()
-    .set('Authorization', token)
+    // .set('Authorization', token)
     .send([{ input: photo }]);
 
   console.log(response.body, 'API LOOOK');
@@ -40,6 +40,16 @@ export async function login(email, password) {
   console.log(response.body, 'POOP');
   return response.body;
 }
+
+//TEST LOGOUT BY EXPIRING COOKIE (GET EMAIL AND PASS FROM LOCAL STORAGE)
+export async function logout() {
+  await request
+    .post(`${localURL}/auth/logout`)
+    .withCredentials()
+  
+}
+//logout end =======================
+
 
 export async function signup(name, email, password) {
   console.log(name, email, password, 'name, email, pass');
@@ -149,7 +159,6 @@ export function getUserFromLocalStorage() {
 
   user = JSON.parse(user);
 
-  console.log(typeof user.id, 'WHERE ARE YOU');
-
-  return user.id;
+//THIS IS IMPORTANT WE CHANGED FROM USER.ID TO USER
+  return user;
 }

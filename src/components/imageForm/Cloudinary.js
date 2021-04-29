@@ -62,10 +62,11 @@ export default class Cloudinary extends Component {
           this.setState({
             cloudinary: result.info.url
           });
-
+          
           postImage(result.info.url).then((makeupData) => {
             console.log(makeupData);
             if (makeupData.length > 0) {
+
               this.setState({
                 bestFoundations: makeupData[0],
                 goodFoundations: makeupData[1]
@@ -81,7 +82,11 @@ export default class Cloudinary extends Component {
     widget.open();
   };
 
+  
+
   render() {
+    console.log(JSON.stringify(document.cookie), 'CAN YOU SEE THIS COOKIE');
+
     return (
       <div>
         <NavBar></NavBar>
@@ -121,16 +126,6 @@ export default class Cloudinary extends Component {
           <FoundationList mapFoundations={this.state.bestFoundations} />
           <FoundationList mapFoundations={this.state.goodFoundations} />
         </StepsContainer>
-
-        {/* // <div className="instructions">
-            //      <div className="title">Are you ready to find your SkinCode()?</div>
-            //     <ul className="steps">
-            //         <li>Take a Selfie</li>
-            //         <li>Make sure you are in natural lighting...we want to find your perfect swatch!</li>
-            //         <li> Use our crop feature just to get your face</li>
-            //         <li>Upload your picture</li>
-            //         <li>Let us do the rest!!!</li>
-            //     </ul> */}
       </div>
     );
   }
