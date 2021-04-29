@@ -11,24 +11,13 @@ export default class FavoritesPage extends Component {
 
   };
 
-  // user = async () => { 
-  //   const userFromLS = await getUserFromLocalStorage()
-  //   // const userId = Number(user.id);
-  //   console.log(userFromLS.id);
-  //   this.setState({
-  //     userId: userFromLS.id
-  //   })
-    
-  // };
-
   componentDidMount = async () => { 
     this.setState({
       loading: true,
     })
 
-    const getFoundationFaves = await getFavoritesById(Number(this.state.userId));
-    //add .id when merge with claudia
-      console.log(getFoundationFaves);
+    const getFoundationFaves = await getFavoritesById(this.state.userId.id);
+      console.log(getFoundationFaves, 'HELP');
 
     this.setState({ 
       favoriteFoundation: getFoundationFaves,
@@ -36,13 +25,6 @@ export default class FavoritesPage extends Component {
     });
    
   }
-
-  // handleFavorites = async () => {
-  //   // console.log(user);
-  //   const getFoundationFaves = await getFavoritesById(this.state.userId);
-  //   console.log(getFoundationFaves);
-  //   this.setState({ favoriteFoundation: getFoundationFaves });
-  // };
 
   render() {
     return (

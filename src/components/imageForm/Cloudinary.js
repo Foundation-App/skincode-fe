@@ -59,7 +59,6 @@ export default class Cloudinary extends Component {
         (error, result) => {
           if (!error && result && result.event === "success") { 
               console.log(result.info.url, 'here is your new link!'); 
-
               this.setState({
                 cloudinary: result.info.url
             })
@@ -79,7 +78,11 @@ export default class Cloudinary extends Component {
     widget.open();
   };
 
+  
+
   render() {
+    console.log(JSON.stringify(document.cookie), 'CAN YOU SEE THIS COOKIE');
+
     return (
       <div>
         <NavBar></NavBar>
