@@ -1,27 +1,55 @@
-// import fbUtils from './fbutils'
-// postFavorites
-// const FB = window.FB;
+const FB = window.FB;
 
-// window.fbAsyncInit = function () {
-//   FB.init({
-//     appId: 'xxxxxxxx',
-//     status: true,
-//     xfbml: true
-//   });
-// };
+window.fbAsyncInit = function () {
+  FB.init({
+    appId: '1185887611851343',
+    status: true,
+    xfbml: true,
+    version: 'v2.10'
+  });
+};
 
-// export function shareResults() {
-//   FB.ui({ method: 'feed', message: 'Facebook for Websites is super-cool' });
-// }
+function postToFeed() {
+  // calling the API ...
+  console.log('trying to post to feed');
+  FB.ui(
+    {
+      method: 'feed',
+      link: 'http://...',
+      name: 'Some Title',
+      caption: 'Some Caption',
+      description: 'Some Description',
+      picture: 'http://...'
+    },
+    function (response) {
+      if (response && response.post_id) {
+        alert('Post was published.');
+      } else {
+        alert('Post was not published.');
+      }
+    }
+  );
+}
 
-// function postToFeed() {
-//   // calling the API ...
-//   var obj = {
+module.exports = {
+  postToFeed
+};
+
+// FB.ui(
+//   {
 //     method: 'feed',
-//     link: 'https://www.azeezkallayi.com/',
-//     description: 'description goes here',
-//     picture: 'https://www.azeezkallayi.com/demo/test/womens-day.jpg',
-//     name: 'International womens day'
-//   };
-//   FB.ui(obj);
-// }
+//     name: 'Facebook Dialogs',
+//     link: 'https://developers.facebook.com/docs/reference/dialogs/',
+//     picture: 'http://fbrell.com/f8.jpg',
+//     caption: 'Reference Documentation',
+//     description:
+//       'Dialogs provide a simple, consistent interface for applications to interface with users.'
+//   },
+//   function (response) {
+//     if (response && response.post_id) {
+//       alert('Post was published.');
+//     } else {
+//       alert('Post was not published.');
+//     }
+//   }
+// );

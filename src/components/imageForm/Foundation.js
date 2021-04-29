@@ -5,8 +5,11 @@ import {
   getDateFromLocalStorage
 } from '../../apiUtils';
 
-// postFavorites
+import { postToFeed } from './fbutils';
 
+//facebook
+
+// postFavorites
 export default class Foundation extends Component {
   state = {
     username: getUserFromLocalStorage(),
@@ -17,6 +20,10 @@ export default class Foundation extends Component {
     hex: this.props.foundationProp.hex,
     product_link: this.props.foundationProp.product_link,
     date_added: getDateFromLocalStorage()
+  };
+
+  handleFbPost = async () => {
+    postToFeed();
   };
 
   handleSubmit = async (e) => {
@@ -77,7 +84,9 @@ export default class Foundation extends Component {
             <button className="like" onClick={this.handleSubmit}>
               ❤️
             </button>
-            {/* <input type="button" onclick={postToFeed()} value="Share" /> */}
+          </li>
+          <li>
+            <input type="button" onClick={this.handleFbPost} value="Share" />
           </li>
         </ul>
       </div>
