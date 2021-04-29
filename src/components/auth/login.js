@@ -10,8 +10,10 @@ import {
   FormLabel,
   FormInput,
   FormButton,
+  FormImage
 } from './authStyling';
 import logo from '../../images/skincodelogo.gif'
+import heart from '../../images/heart.gif'
 
 export default class loginPage extends Component {
   state = {
@@ -70,6 +72,7 @@ export default class loginPage extends Component {
                 <img className="logo" src={logo} alt="logo"></img></Icon>
               <FormContent>
                 <Form action='#'>
+                  <FormImage src={heart} alt="heart"></FormImage>
                   <FormH1>Sign in to your account</FormH1>
                   <FormLabel htmlFor='for'>Email</FormLabel>
                   <FormInput onChange={this.handleEmailChange} type='email' required />
