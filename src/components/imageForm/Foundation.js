@@ -22,9 +22,9 @@ export default class Foundation extends Component {
     date_added: getDateFromLocalStorage()
   };
 
-  handleFbPost = async () => {
-    postToFeed();
-  };
+  // handleFbPost = async () => {
+  //   postToFeed();
+  // };
 
   handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,7 +32,7 @@ export default class Foundation extends Component {
     // const date_added = await getDateFromLocalStorage()
 
     await postFavorites(
-      Number(this.state.username),
+      Number(this.state.username.id),
       this.state.makeup_name,
       this.state.image_link,
       this.state.brand,
