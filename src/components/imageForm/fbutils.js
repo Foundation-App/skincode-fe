@@ -12,7 +12,7 @@ window.fbAsyncInit = function () {
 function postToFeed() {
   // calling the API ...
   console.log('trying to post to feed');
-  FB.ui(
+  const post = FB.ui(
     {
       method: 'feed',
       link: 'http://...',
@@ -29,6 +29,7 @@ function postToFeed() {
       }
     }
   );
+  console.log(post);
 }
 
 module.exports = {
