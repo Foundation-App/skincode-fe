@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { get } from 'superagent';
 import { getFavoritesById, getUserFromLocalStorage, getCloudFromLocalStorage } from '../../apiUtils';
 import FavoriteList from './FavoriteList';
 
@@ -6,26 +7,27 @@ export default class FavoritesPage extends Component {
   state = {
     favoriteFoundation: [],
     loading: true,
-    userId: 1,
+    userId: getUserFromLocalStorage(),
     cloudinarylink: getCloudFromLocalStorage()
 
   };
 
-  user = async () => { 
-    const userFromLS = await getUserFromLocalStorage()
-    // const userId = Number(user.id);
-    console.log(userFromLS.id);
-    this.setState({
-      userId: userFromLS.id
-    })
+  // user = async () => { 
+  //   const userFromLS = await getUserFromLocalStorage()
+  //   // const userId = Number(user.id);
+  //   console.log(userFromLS.id);
+  //   this.setState({
+  //     userId: userFromLS.id
+  //   })
     
-  };
+  // };
 
   componentDidMount = async () => { 
     this.setState({
       loading: true,
     })
-    const getFoundationFaves = await getFavoritesById(this.state.userId);
+
+    const getFoundationFaves = await getFavoritesById(Number(this.state.userId));
       console.log(getFoundationFaves);
 
     this.setState({ 
@@ -35,12 +37,12 @@ export default class FavoritesPage extends Component {
    
   }
 
-  handleFavorites = async () => {
-    // console.log(user);
-    const getFoundationFaves = await getFavoritesById(this.state.userId);
-    console.log(getFoundationFaves);
-    this.setState({ favoriteFoundation: getFoundationFaves });
-  };
+  // handleFavorites = async () => {
+  //   // console.log(user);
+  //   const getFoundationFaves = await getFavoritesById(this.state.userId);
+  //   console.log(getFoundationFaves);
+  //   this.setState({ favoriteFoundation: getFoundationFaves });
+  // };
 
   render() {
     return (

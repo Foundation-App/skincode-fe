@@ -12,7 +12,6 @@ import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
 import PrivateRoute from './components/auth/PrivateRoute'
 import { getUserFromLocalStorage, putUserInLocalStorage } from './apiUtils';
-import { saveCookies } from 'superagent';
 
 export default class App extends Component {
   state = { 
@@ -59,15 +58,16 @@ export default class App extends Component {
                   exact
                   render={(routerProps) => <Cloudinary {...routerProps}/>} 
               />
-              <PrivateRoute
-                 path="/myfavorites" 
+              {/* <PrivateRoute
+                 path='/myfavorites' 
                  exact
-                 token={user && user.token}
-                 render={(routerProps) => <FavoritesPage {...routerProps}/>}
-              />
+                 render={(routerProps) => <FavoritesPage {...routerProps} />} 
+                 user={this.state.user}
+              /> */}
                <Route 
-                 
-                  render={(routerProps) => <FavoritesPage {...routerProps}/>} 
+                path='/myfavorites' 
+                exact
+                render={(routerProps) => <FavoritesPage {...routerProps}/>}
               />
           </Switch>
       </Router>
