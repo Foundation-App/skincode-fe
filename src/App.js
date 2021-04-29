@@ -7,12 +7,13 @@ import {
   Switch,
 } from 'react-router-dom';
 import Login from './components/auth/login';
+import Logout from './components/auth/logout';
 import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
-import PrivateRoute from './components/auth/PrivateRoute'
+// import PrivateRoute from './components/auth/PrivateRoute'
 import { getUserFromLocalStorage, putUserInLocalStorage } from './apiUtils';
-import { saveCookies } from 'superagent';
+// import { saveCookies } from 'superagent';
 
 export default class App extends Component {
   state = { 
@@ -54,12 +55,17 @@ export default class App extends Component {
                   exact
                   render={(routerProps) => <Login {...routerProps}/>} 
               />
+              <Route 
+                  path="/logout" 
+                  exact
+                  render={(routerProps) => <Logout {...routerProps}/>} 
+              />
                 <Route 
                   path="/findmyskincode" 
                   exact
                   render={(routerProps) => <Cloudinary {...routerProps}/>} 
               />
-              <PrivateRoute
+              <Route
                  path="/myfavorites" 
                  exact
                  token={user && user.token}

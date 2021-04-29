@@ -26,7 +26,7 @@ export default class FavoritesPage extends Component {
       loading: true,
     })
     const getFoundationFaves = await getFavoritesById(this.state.userId);
-      console.log(getFoundationFaves);
+      console.log(getFoundationFaves, 'HELP');
 
     this.setState({ 
       favoriteFoundation: getFoundationFaves,
@@ -35,12 +35,12 @@ export default class FavoritesPage extends Component {
    
   }
 
-  handleFavorites = async () => {
-    // console.log(user);
-    const getFoundationFaves = await getFavoritesById(this.state.userId);
-    console.log(getFoundationFaves);
-    this.setState({ favoriteFoundation: getFoundationFaves });
-  };
+  // handleFavorites = async () => {
+  //   // console.log(user);
+  //   const getFoundationFaves = await getFavoritesById(this.state.userId);
+  //   console.log(getFoundationFaves);
+  //   this.setState({ favoriteFoundation: getFoundationFaves });
+  // };
 
   render() {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { login, putUserInLocalStorage } from '../../apiUtils';
+import { login, putUserInLocalStorage, getUserFromLocalStorage } from '../../apiUtils';
 import {
   Container,
   FormWrap,
@@ -16,7 +16,8 @@ import logo from '../../images/skincodelogo.gif'
 export default class loginPage extends Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    userlogout: getUserFromLocalStorage()
   };
 
   handleEmailChange = (e) => {
@@ -39,15 +40,18 @@ export default class loginPage extends Component {
     e.preventDefault();
     try {
       const user = await login(this.state.email, this.state.password);
-      console.log(user);
+
       putUserInLocalStorage(user);
-      console.log('YOU ARE LOGGED IN');
-      // return user;
+
       window.location.replace('/findmyskincode');
     } catch (err) {
        await this.setState({ error: err.response.body.message});
     }
   };
+
+
+
+
 
   render() {
     let err_comp;
@@ -60,23 +64,6 @@ export default class loginPage extends Component {
     }
     return (
       <div>
-      {/* <div>
-        <form>
-          <input
-            type="email"
-            placeholder="email"
-            onChange={this.handleEmailChange}
-          ></input>
-          <input
-            type="password"
-            placeholder="password"
-            onChange={this.handlePasswordChange}
-          ></input>
-          <button onClick={this.onLoginSubmit} type="submit">
-            Login
-          </button>
-        </form>
-      </div> */}
             <Container>
             <FormWrap>
               <Icon to='/'>
@@ -98,3 +85,5 @@ export default class loginPage extends Component {
     );
   }
 }
+
+
