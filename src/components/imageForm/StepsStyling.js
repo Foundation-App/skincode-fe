@@ -6,8 +6,14 @@ export const StepsContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: #fff;
-  margin-top: 40px;
+  background: #FFFAFA;
+  @media screen and (max-width: 768px) {
+    height: 1100px;
+  }
+
+  @media screen and (max-width: 480px) {
+    height: 1300px;
+  }
 `;
 
 export const StepsWrapper = styled.div`
@@ -19,6 +25,13 @@ export const StepsWrapper = styled.div`
   max-width: 1000px;
   display: flex;
   flex-direction: space-between;
+  @media screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const StepsCard = styled.div`
@@ -32,6 +45,7 @@ export const StepsCard = styled.div`
   width: 500px;
   padding: 40px;
   margin: 20px;
+  margin-top: 64px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: all 0.2s ease-in-out;
 
@@ -51,7 +65,10 @@ export const StepsIcon = styled.img`
 export const StepsH1 = styled.h1`
   font-size: 2.5rem;
   color: #C68642;
-  margin-bottom: 64px;
+  margin-top: 120px;
+  @media screen and (max-width: 480px) {
+    font-size: 1rem;
+  }
 `;
 
 export const StepsH2 = styled.h2`
