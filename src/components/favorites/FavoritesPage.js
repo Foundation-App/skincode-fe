@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { get } from 'superagent';
 import { getFavoritesById, getUserFromLocalStorage, getCloudFromLocalStorage } from '../../apiUtils';
 import FavoriteList from './FavoriteList';
 
@@ -28,6 +27,7 @@ export default class FavoritesPage extends Component {
     })
 
     const getFoundationFaves = await getFavoritesById(Number(this.state.userId));
+    //add .id when merge with claudia
       console.log(getFoundationFaves);
 
     this.setState({ 

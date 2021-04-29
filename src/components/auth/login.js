@@ -60,23 +60,6 @@ export default class loginPage extends Component {
     }
     return (
       <div>
-      {/* <div>
-        <form>
-          <input
-            type="email"
-            placeholder="email"
-            onChange={this.handleEmailChange}
-          ></input>
-          <input
-            type="password"
-            placeholder="password"
-            onChange={this.handlePasswordChange}
-          ></input>
-          <button onClick={this.onLoginSubmit} type="submit">
-            Login
-          </button>
-        </form>
-      </div> */}
             <Container>
             <FormWrap>
               <Icon to='/'>

@@ -33,7 +33,7 @@ export default class App extends Component {
 
 
   render() {
-    const { user } = this.state;
+    // const { user } = this.state;
     return (
       <div>
       <Router>
@@ -58,17 +58,17 @@ export default class App extends Component {
                   exact
                   render={(routerProps) => <Cloudinary {...routerProps}/>} 
               />
-              {/* <PrivateRoute
+              <PrivateRoute
                  path='/myfavorites' 
                  exact
                  render={(routerProps) => <FavoritesPage {...routerProps} />} 
-                 user={this.state.user}
-              /> */}
-               <Route 
+                //  user={this.state.user}
+              />
+               {/* <Route 
                 path='/myfavorites' 
                 exact
                 render={(routerProps) => <FavoritesPage {...routerProps}/>}
-              />
+              /> */}
           </Switch>
       </Router>
   </div>
