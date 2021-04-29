@@ -1,78 +1,70 @@
 import React, { Component } from 'react';
 import './App.css';
 import Cloudinary from './components/imageForm/Cloudinary';
-import {
-  BrowserRouter as Router, 
-  Route, 
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/auth/login';
 import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
-import PrivateRoute from './components/auth/PrivateRoute'
+import PrivateRoute from './components/auth/PrivateRoute';
 import { getUserFromLocalStorage, putUserInLocalStorage } from './apiUtils';
-import { saveCookies } from 'superagent';
+// import { saveCookies } from 'superagent';
 
 export default class App extends Component {
-  state = { 
+  state = {
     user: getUserFromLocalStorage()
-  }
-
-  handleUserChange = (user) => {
-    this.setState({ user })
-
-    putUserInLocalStorage(user)
   };
 
-  handleLogout = () => { 
+  handleUserChange = (user) => {
+    this.setState({ user });
+
+    putUserInLocalStorage(user);
+  };
+
+  handleLogout = () => {
     this.handleUserChange();
     sessionStorage.clear();
     // saveCookies.clear
-  }
-  
-
+  };
 
   render() {
     const { user } = this.state;
     return (
       <div>
-      <Router>
+        <Router>
           <Switch>
-            <Route 
-                  path="/" 
-                  exact
-                  render={(routerProps) => <HomePage {...routerProps}/>} 
-              />
-              <Route 
-                  path="/signup" 
-                  exact
-                  render={(routerProps) => <Signup {...routerProps}/>} 
-              />
-              <Route 
-                  path="/login" 
-                  exact
-                  render={(routerProps) => <Login {...routerProps}/>} 
-              />
-                <Route 
-                  path="/findmyskincode" 
-                  exact
-                  render={(routerProps) => <Cloudinary {...routerProps}/>} 
-              />
-              <PrivateRoute
-                 path="/myfavorites" 
-                 exact
-                 token={user && user.token}
-                 render={(routerProps) => <FavoritesPage {...routerProps}/>}
-              />
-               <Route 
-                 
-                  render={(routerProps) => <FavoritesPage {...routerProps}/>} 
-              />
+            <Route
+              path="/"
+              exact
+              render={(routerProps) => <HomePage {...routerProps} />}
+            />
+            <Route
+              path="/signup"
+              exact
+              render={(routerProps) => <Signup {...routerProps} />}
+            />
+            <Route
+              path="/login"
+              exact
+              render={(routerProps) => <Login {...routerProps} />}
+            />
+            <Route
+              path="/findmyskincode"
+              exact
+              render={(routerProps) => <Cloudinary {...routerProps} />}
+            />
+            <PrivateRoute
+              path="/myfavorites"
+              exact
+              token={user && user.token}
+              render={(routerProps) => <FavoritesPage {...routerProps} />}
+            />
+            <Route
+              render={(routerProps) => <FavoritesPage {...routerProps} />}
+            />
           </Switch>
-      </Router>
-  </div>
-      
+        </Router>
+      </div>
     );
   }
 }
@@ -89,39 +81,39 @@ export default class App extends Component {
 //   <div>
 //       <Router>
 //           <Switch>
-//               <Route 
-//                   path="/signup" 
+//               <Route
+//                   path="/signup"
 //                   exact
 //                   render={(routerProps) => <Signup
-//                     user={this.state.user} {...routerProps} />} 
+//                     user={this.state.user} {...routerProps} />}
 //               />
-//               <Route 
-//                   path="/login" 
+//               <Route
+//                   path="/login"
 //                   exact
-//                   render={(routerProps) => <Login {...routerProps} 
-//                   handleUserChange={this.handleUserChange}/>} 
+//                   render={(routerProps) => <Login {...routerProps}
+//                   handleUserChange={this.handleUserChange}/>}
 //               />
-//                 <Route 
-//                   path="/findmyskincode" 
+//                 <Route
+//                   path="/findmyskincode"
 //                   exact
 //                   render={(routerProps) => <Cloudinary {...routerProps}
-//                   handleUserChange={this.handleUserChange} />} 
+//                   handleUserChange={this.handleUserChange} />}
 //               />
-//                <Route 
-//                   path="/myfavorites" 
+//                <Route
+//                   path="/myfavorites"
 //                   exact
 //                   render={(routerProps) => <FavoritesPage {...routerProps}
-//                   handleUserChange={this.handleUserChange} 
-//                   dummyProp="cat"/>} 
+//                   handleUserChange={this.handleUserChange}
+//                   dummyProp="cat"/>}
 //               />
-//                 <PrivateRoute 
-//                   path="/myfavorites" 
+//                 <PrivateRoute
+//                   path="/myfavorites"
 //                   exact
 //                   token={user && user.token}
-//                   render={(routerProps) => 
+//                   render={(routerProps) =>
 //                   <ApodsFavoritesPage
 //                     user={this.state.user}
-//                     {...routerProps} />} 
+//                     {...routerProps} />}
 //               />
 //           </Switch>
 //       </Router>
