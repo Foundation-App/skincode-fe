@@ -1,19 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
-
+* {
+  font-family: Raleway;
+}
 .like {
   background:  none;
   border: none;
+  cursor:pointer;
 }
 
 .like:hover{
   transform: scale(2);
 }
 .App {
-  text-align: center;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: 'Raleway';
@@ -25,6 +25,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin: 10px;
 }
 
 .foundation-box { 
@@ -34,6 +35,7 @@
   justify-content: center;
   padding: 10px;
   flex-wrap: wrap;
+  margin: 10px;
 }
 
 .box { 
@@ -42,6 +44,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  border-radius: 10px;
   height: auto;
   width: 400px;
   line-height: 1;
@@ -59,67 +62,6 @@
   cursor: pointer;
 }
 
-.instructions {
-  font-size: 18px;
-  margin: 10px;
-  padding: 10px;
-}
-
-.upload{
-  background:#fff;
-  color:#C68642;
-  border:none;
-  position:relative;
-  height:40px;
-  font-size:1.6em;
-  padding:0 1em;
-  cursor:pointer;
-  transition:800ms ease all;
-  outline:none;
-  margin-top: 20px;
-}
-.upload:hover{
-  background:#fff;
-  color:#E3B696;
-}
-
-.upload:before,.upload:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #E3B696;
-  transition:400ms ease all;
-}
-.upload:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.upload:hover:before,.upload:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
-
-.main {
-  background: transparent;
-  border:#E3B696 2px solid;
-}
-
-.title {
-  font-weight: 400;
-}
-.steps {
-  margin: 10px;
-  line-height: 2;
-  font-size: 20px;
-  font-weight: 300;
-  text-decoration: none;
-  list-style-type: none;
-}
 
 .foundation-img {
   width: 50px;
@@ -146,4 +88,3 @@ li {
 .logo {
   height: 50px;
 }
-

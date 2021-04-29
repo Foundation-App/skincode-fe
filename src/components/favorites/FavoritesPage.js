@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { getFavoritesById, getUserFromLocalStorage, getCloudFromLocalStorage } from '../../apiUtils';
 import FavoriteList from './FavoriteList';
+import FavNav from '../favorites/FavNav'
+import {
+  FavoriteWrapper,
+  FavoriteContainer,
+  FavH1
+} from '../favorites/FavStyling';
 
 export default class FavoritesPage extends Component {
   state = {
@@ -28,10 +34,16 @@ export default class FavoritesPage extends Component {
 
   render() {
     return (
-      <div>
-        <FavoriteList
-        mapFavorites={this.state.favoriteFoundation}/>
-      </div>
+        <div>
+        <FavNav></FavNav>
+        <FavoriteContainer>
+          <FavH1>Your Favorites</FavH1>
+          <FavoriteWrapper>        
+            <FavoriteList
+          mapFavorites={this.state.favoriteFoundation}/>
+          </FavoriteWrapper>
+        </FavoriteContainer>
+        </div>
     );
   }
 }

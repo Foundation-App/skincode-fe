@@ -13,7 +13,7 @@ import {
   FormImage
 } from './authStyling';
 import logo from '../../images/skincodelogo.gif'
-import heart from '../../images/heart.gif'
+import heart from '../../images/test.gif'
 
 export default class loginPage extends Component {
   state = {

@@ -6,10 +6,11 @@ import {
 } from '../../apiUtils';
 
 import FoundationList from './FoundationList';
-import NavBar from '../HomePage/NavBar';
+import StepsNavBar from './StepsNav';
 import Icon3 from '../../images/logo3.gif';
 import Icon2 from '../../images/logo2.gif';
 import Icon1 from '../../images/logo1.gif';
+import upload from '../../images/upload.png';
 import {
   StepsContainer,
   StepsH1,
@@ -17,7 +18,9 @@ import {
   StepsCard,
   StepsIcon,
   StepsH2,
-  StepsP
+  StepsP,
+  StepsButton,
+  StepsImage
 } from './StepsStyling';
 
 export default class Cloudinary extends Component {
@@ -89,7 +92,7 @@ export default class Cloudinary extends Component {
 
     return (
       <div>
-        <NavBar></NavBar>
+        <StepsNavBar></StepsNavBar>
         <StepsContainer id="Steps">
           <StepsH1>How it Works.</StepsH1>
           <StepsWrapper>
@@ -120,9 +123,9 @@ export default class Cloudinary extends Component {
               </StepsP>
             </StepsCard>
           </StepsWrapper>
-          <button className="upload" onClick={this.showWidget}>
-            Upload Image
-          </button>
+          <StepsButton onClick={this.showWidget}>
+            <StepsImage src={upload} alt="upload"></StepsImage>
+          </StepsButton>
           <FoundationList mapFoundations={this.state.bestFoundations} />
           <FoundationList mapFoundations={this.state.goodFoundations} />
         </StepsContainer>
