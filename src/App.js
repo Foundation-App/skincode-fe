@@ -8,7 +8,7 @@ import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
 import PrivateRoute from './components/auth/PrivateRoute'
-import { getUserFromLocalStorage, putUserInLocalStorage, verifyUser } from './apiUtils';
+import { putUserInLocalStorage, verifyUser } from './apiUtils';
 
 
 
@@ -84,11 +84,6 @@ export default class App extends Component {
                 error={this.state.authError}
                 loading={this.state.authLoading}
               />
-            {/* <Route
-              path="/myfavorites"
-              exact
-              render={(routerProps) => <FavoritesPage {...routerProps} />}
-            /> */}
           </Switch>
         </Router>
       </div>
@@ -96,12 +91,5 @@ export default class App extends Component {
   }
 }
 
-// <PrivateRoute
-// path="/playlist"
-// exact
-// token={user && user.token}
-// render={(routerProps) => <Playlist {...routerProps} />}
-// user={this.state.user}
-// />
 
 

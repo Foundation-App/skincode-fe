@@ -21,7 +21,6 @@ export default class FavoritesPage extends Component {
     this.setState({
       loading: true
     });
-
     const getFoundationFaves = await getFavoritesById(this.state.userId.id);
 
     this.setState({
