@@ -23,16 +23,17 @@ export async function postImage(photo, token) {
 export async function postAuthImage(photo) {
   const response = await request
     .post(`${localURL}/api/imageurl`)
-    // .withCredentials()
+    .withCredentials()
     .send([{ input: photo }]);
 
   return response.body;
 }
 
-export async function login(email, password) {
+export async function login(email, password, token) {
   const response = await request
     .post(`${localURL}/auth/login`)
-    // .withCredentials()
+    .withCredentials()
+    .set('Authorization', token)
     .send({ email, password });
 
   return response.body;
@@ -42,10 +43,11 @@ export async function logout() {
   await request.post(`${localURL}/auth/logout`).withCredentials();
 }
 
-export async function signup(name, email, password) {
+export async function signup(name, email, password, token) {
   const response = await request
     .post(`${localURL}/auth/signup`)
-    // .withCredentials()
+    .withCredentials()
+    .set('Authorization', token)
     .send({ name, email, password });
 
   return response.body;
@@ -90,7 +92,7 @@ export async function postFavorites(
 ) {
   const response = await request
     .post(`${localURL}/api/favorites`)
-    // .withCredentials()
+    .withCredentials()
     .set('Accept', 'application/json')
     .send({
       username,
@@ -109,7 +111,7 @@ export async function postFavorites(
 export async function getFavorites() {
   const response = await request
     .get(`${localURL}/api/favorites`)
-    // .withCredentials();
+    .withCredentials();
 
   return response.body;
 }
@@ -117,7 +119,7 @@ export async function getFavorites() {
 export async function getFavoritesById(id) {
   const response = await request
     .get(`${localURL}/api/favorites/${id}`)
-    // .withCredentials();
+    .withCredentials();
 
   return response.body;
 }
