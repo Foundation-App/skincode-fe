@@ -98,7 +98,7 @@ export default class signupPage extends Component {
             <FormContent>
               <Form action='#'>
                     <FormImage src={heart} alt="heart"></FormImage>
-                    <FormH1>Sign Up for an account</FormH1>
+                    <FormH1>Sign up for an account</FormH1>
                     <FormLabel>Name</FormLabel>
                     <FormInput onChange={this.handleNameChange} type='fname' required />
                     <FormLabel>Email</FormLabel>
