@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getFavoritesById, getUserFromLocalStorage, getCloudFromLocalStorage } from '../../apiUtils';
+import { getFavoritesById, getUserFromLocalStorage } from '../../apiUtils';
 import FavoriteList from './FavoriteList';
 import FavNav from '../favorites/FavNav'
 import {
@@ -15,24 +15,20 @@ export default class FavoritesPage extends Component {
     favoriteFoundation: [],
     loading: true,
     userId: getUserFromLocalStorage(),
-    cloudinarylink: getCloudFromLocalStorage(),
-
   };
 
-  componentDidMount = async () => { 
+  componentDidMount = async () => {
     this.setState({
-      loading: true,
-    })
+      loading: true
+    });
 
     const getFoundationFaves = await getFavoritesById(this.state.userId.id);
-      console.log(getFoundationFaves, 'HELP');
 
-    this.setState({ 
+    this.setState({
       favoriteFoundation: getFoundationFaves,
       loading: false
     });
-   
-  }
+  };
 
   render() {
     return (

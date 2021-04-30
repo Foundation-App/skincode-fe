@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { login, putUserInLocalStorage, getUserFromLocalStorage } from '../../apiUtils';
+import { login, putUserInLocalStorage } from '../../apiUtils';
 import {
   Container,
   FormWrap,
@@ -12,14 +12,15 @@ import {
   FormButton,
   FormImage
 } from './authStyling';
+
 import logo from '../../images/skincodelogo.gif'
 import heart from '../../images/test.gif'
+
 
 export default class loginPage extends Component {
   state = {
     email: '',
-    password: '',
-    userlogout: getUserFromLocalStorage()
+    password: ''
   };
 
   handleEmailChange = (e) => {
@@ -32,7 +33,7 @@ export default class loginPage extends Component {
 
   handlePasswordChange = (e) => {
     e.preventDefault();
-   
+
     this.setState({
       password: e.target.value
     });
@@ -47,46 +48,55 @@ export default class loginPage extends Component {
 
       window.location.replace('/findmyskincode');
     } catch (err) {
-       await this.setState({ error: err.response.body.message});
+      await this.setState({ error: err.response.body.message });
     }
   };
 
-
-
-
-
   render() {
     let err_comp;
-    let error =  this.state.error
+    let error = this.state.error;
     if (error) {
-      err_comp = <h5 style={{ color: 'red' }}> Uh oh, login failed. Please try again.</h5>
-    } 
-    else {
-      err_comp = "";
+      err_comp = (
+        <h5 style={{ color: 'red' }}>
+          {' '}
+          Uh oh, login failed. Please try again.
+        </h5>
+      );
+    } else {
+      err_comp = '';
     }
     return (
       <div>
-            <Container>
-            <FormWrap>
-              <Icon to='/'>
-                <img className="logo" src={logo} alt="logo"></img></Icon>
-              <FormContent>
-                <Form action='#'>
-                  <FormImage src={heart} alt="heart"></FormImage>
-                  <FormH1>Sign in to your account</FormH1>
-                  <FormLabel htmlFor='for'>Email</FormLabel>
-                  <FormInput onChange={this.handleEmailChange} type='email' required />
-                  <FormLabel htmlFor='for'>Password</FormLabel>
-                  <FormInput onChange={this.handlePasswordChange}type='password' required />
-                  <FormButton type='submit' onClick={this.onLoginSubmit} >Login</FormButton>
-                  {err_comp}
-                </Form>
-              </FormContent>
-            </FormWrap>
-          </Container>
-          </div>
+        <Container>
+          <FormWrap>
+            <Icon to="/">
+              <img className="logo" src={logo} alt="logo"></img>
+            </Icon>
+            <FormContent>
+              <Form action="#">
+                <FormImage src={heart} alt="heart"></FormImage>
+                <FormH1>Sign in to your account</FormH1>
+                <FormLabel htmlFor="for">Email</FormLabel>
+                <FormInput
+                  onChange={this.handleEmailChange}
+                  type="email"
+                  required
+                />
+                <FormLabel htmlFor="for">Password</FormLabel>
+                <FormInput
+                  onChange={this.handlePasswordChange}
+                  type="password"
+                  required
+                />
+                <FormButton type="submit" onClick={this.onLoginSubmit}>
+                  Login
+                </FormButton>
+                {err_comp}
+              </Form>
+            </FormContent>
+          </FormWrap>
+        </Container>
+      </div>
     );
   }
 }
-
-
