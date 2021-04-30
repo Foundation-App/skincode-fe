@@ -1,12 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400&display=swap');
+* {
+  font-family: Raleway;
+}
+.like {
+  background:  none;
+  border: none;
+  cursor:pointer;
+}
 
-
+.like:hover{
+  transform: scale(2);
+}
 .App {
-  text-align: center;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-family: 'Raleway';
@@ -18,6 +25,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin: 10px;
 }
 
 .foundation-box { 
@@ -26,81 +34,34 @@
   flex-direction: row;
   justify-content: center;
   padding: 10px;
-  margin: 20px;
   flex-wrap: wrap;
+  margin: 10px;
 }
 
 .box { 
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 500px;
-  width: 300px;
-  border: 5px solid #fddcb0;
+  text-align: center;
+  border-radius: 10px;
+  height: auto;
+  width: 1000px;
   line-height: 1;
   font-weight: 300;
-  box-shadow: 2px 2px 0px 0px #FFDBAC, 8px 8px 0px 0px #F1C27D, 13px 13px 0px 0px #E0AC69, 18px 18px 0px 0px #C68642, 23px 23px 0px 0px #8D5524, 5px 5px 15px 5px rgba(0,0,0,0);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transition: all 0.2s ease-in-out;
   flex-wrap: wrap;
   list-style-type: none;
-  
+  margin: 20px;
 }
 
-.instructions {
-  font-size: 18px;
-  margin: 10px;
-  padding: 10px;
+.box:hover {
+  transform: scale(1.02);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
-button{
-  background:#E3B696;
-  color:#fff;
-  border:none;
-  position:relative;
-  height:40px;
-  font-size:1em;
-  padding:0 1em;
-  cursor:pointer;
-  transition:800ms ease all;
-  outline:none;
-  margin: 10px;
-}
-button:hover{
-  background:#fff;
-  color:#E3B696;
-}
-
-.upload:before,.upload:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #E3B696;
-  transition:400ms ease all;
-}
-.upload:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.upload:hover:before,.upload:hover:after{
-  width:100%;
-  transition:800ms ease all;
-}
-.title {
-  font-weight: 400;
-}
-.steps {
-  margin: 10px;
-  line-height: 2;
-  font-size: 20px;
-  font-weight: 300;
-  text-decoration: none;
-  list-style-type: none;
-}
 
 .foundation-img {
   width: 50px;
@@ -124,3 +85,6 @@ li {
 
 }
 
+.logo {
+  height: 50px;
+}
