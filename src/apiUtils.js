@@ -129,7 +129,6 @@ export function getUserFromLocalStorage() {
 }
 
 export function verifyUser() { 
-  // https://skincodebe.herokuapp.com
   return fetch(`${localURL}/auth/verify`, {
     credentials: 'include'
   })

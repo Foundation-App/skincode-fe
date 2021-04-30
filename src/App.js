@@ -3,7 +3,7 @@ import './App.css';
 import Cloudinary from './components/imageForm/Cloudinary';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/auth/login';
-import Logout from './components/auth/logout';
+import Logout from './components/auth/LogOutPage';
 import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
