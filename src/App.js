@@ -7,10 +7,8 @@ import Logout from './components/auth/logout';
 import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
-import PrivateRoute from './components/auth/PrivateRoute'
-import { getUserFromLocalStorage, putUserInLocalStorage, verifyUser } from './apiUtils';
-
-
+import PrivateRoute from './components/auth/PrivateRoute';
+import { putUserInLocalStorage, verifyUser } from './apiUtils';
 
 export default class App extends Component {
   state = {
@@ -31,22 +29,22 @@ export default class App extends Component {
     // saveCookies.clear
   };
 
-  componentDidMount = () => { 
-    this.setState({ authLoading: true})
+  componentDidMount = () => {
+    this.setState({ authLoading: true });
     verifyUser()
-      .then(user => this.setState({
-        user, 
-        loading: false
-      }))
-      .catch(authError => {
-        this.setState({ authError: authError.message })
-        console.log(authError.message)
-    })
-      
-  }
+      .then((user) =>
+        this.setState({
+          user,
+          loading: false
+        })
+      )
+      .catch((authError) => {
+        this.setState({ authError: authError.message });
+        console.log(authError.message);
+      });
+  };
 
   render() {
- 
     return (
       <div>
         <Router>
@@ -71,19 +69,19 @@ export default class App extends Component {
               exact
               render={(routerProps) => <Cloudinary {...routerProps} />}
             />
-             <Route 
-               path="/logout" 
-               exact
-               render={(routerProps) => <Logout {...routerProps}/>} 
+            <Route
+              path="/logout"
+              exact
+              render={(routerProps) => <Logout {...routerProps} />}
             />
             <PrivateRoute
-                 exact
-                 path='/myfavorites' 
-                 render={(routerProps) => <FavoritesPage {...routerProps} />} 
-                user={this.state.user}
-                error={this.state.authError}
-                loading={this.state.authLoading}
-              />
+              exact
+              path="/myfavorites"
+              render={(routerProps) => <FavoritesPage {...routerProps} />}
+              user={this.state.user}
+              error={this.state.authError}
+              loading={this.state.authLoading}
+            />
             {/* <Route
               path="/myfavorites"
               exact
@@ -103,5 +101,3 @@ export default class App extends Component {
 // render={(routerProps) => <Playlist {...routerProps} />}
 // user={this.state.user}
 // />
-
-
