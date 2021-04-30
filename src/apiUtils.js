@@ -162,3 +162,14 @@ export function getUserFromLocalStorage() {
 //THIS IS IMPORTANT WE CHANGED FROM USER.ID TO USER
   return user;
 }
+
+export function verifyUser() { 
+  return fetch('http://localhost:7894/auth/verify', {
+    credentials: 'include'
+  })
+  .then(res => Promise.all([res.ok, res.json()]))
+          .then(([ok, json]) => {
+              if (!ok) throw json;
+              return json;
+          })
+}
