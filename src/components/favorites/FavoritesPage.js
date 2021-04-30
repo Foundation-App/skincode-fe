@@ -38,7 +38,8 @@ export default class FavoritesPage extends Component {
           <FavH1>Your Favorites<FavImg src={heart} alt="heart"></FavImg></FavH1>
           <FavoriteWrapper>        
             <FavoriteList
-          mapFavorites={this.state.favoriteFoundation}/>
+          mapFavorites={this.state.favoriteFoundation}
+          loading={this.state.loading}/>
           </FavoriteWrapper>
         </FavoriteContainer>
         </div>
