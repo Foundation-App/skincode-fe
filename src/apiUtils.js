@@ -1,7 +1,7 @@
 import request from 'superagent';
 
 // const localURL = 'http://localhost:7894';
-const localURL = 'https://skincodeprod.herokuapp.com';
+const localURL = 'https://skincodebe.herokuapp.com/';
 
 export async function getTest() {
   const response = await request.get(`${localURL}/test`);
