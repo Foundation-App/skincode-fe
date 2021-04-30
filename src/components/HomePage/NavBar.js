@@ -33,13 +33,6 @@ function Navbar() {
                   Find A Match
                 </NavLinks>
               </NavItem>
-              <NavItem>
-                <NavLinks
-                  to='/myfavorites'
-                >
-                  My Favorites
-                </NavLinks>
-              </NavItem>
             <NavBtn>
               <NavBtnLink to='/login'>Sign In</NavBtnLink>
             </NavBtn>

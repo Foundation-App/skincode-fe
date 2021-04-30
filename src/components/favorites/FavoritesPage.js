@@ -10,6 +10,7 @@ import {
 } from '../favorites/FavStyling';
 import heart from '../../images/heart.gif'
 
+
 export default class FavoritesPage extends Component {
   state = {
     favoriteFoundation: [],
