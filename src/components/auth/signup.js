@@ -83,31 +83,17 @@ export default class signupPage extends Component {
               <img className="logo" src={logo} alt="logo"></img>
             </Icon>
             <FormContent>
-              <Form action="#">
-                <FormImage src={heart} alt="heart"></FormImage>
-                <FormH1>Sign Up for an account</FormH1>
-                <FormLabel>Name</FormLabel>
-                <FormInput
-                  onChange={this.handleNameChange}
-                  type="fname"
-                  required
-                />
-                <FormLabel>Email</FormLabel>
-                <FormInput
-                  onChange={this.handleEmailChange}
-                  type="email"
-                  required
-                />
-                <FormLabel>Password</FormLabel>
-                <FormInput
-                  onChange={this.handlePasswordChange}
-                  type="password"
-                  required
-                />
-                <FormButton type="submit" onClick={this.onSignupSubmit}>
-                  Sign Up!
-                </FormButton>
-                {error_comp}
+                <Form action='#'>
+                    <FormImage src={heart} alt="heart"></FormImage>
+                    <FormH1>Sign up for an account</FormH1>
+                    <FormLabel>Name</FormLabel>
+                    <FormInput onChange={this.handleNameChange} type='fname' required />
+                    <FormLabel>Email</FormLabel>
+                    <FormInput onChange={this.handleEmailChange} type='email' required />
+                    <FormLabel>Password</FormLabel>
+                    <FormInput onChange={this.handlePasswordChange}type='password' required />
+                    <FormButton type='submit' onClick={this.onSignupSubmit} >Sign Up!</FormButton>
+                    {error_comp}
               </Form>
             </FormContent>
           </FormWrap>
