@@ -58,7 +58,7 @@ export default class signupPage extends Component {
 
       window.location.replace('/login');
     } catch (err) {
-      await this.setState({ error: err.response.body.message });
+      // await this.setState({ error: err.response.body.message });
     }
   };
 
