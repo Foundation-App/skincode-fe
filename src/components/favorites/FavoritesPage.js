@@ -5,8 +5,10 @@ import FavNav from '../favorites/FavNav'
 import {
   FavoriteWrapper,
   FavoriteContainer,
-  FavH1
+  FavH1,
+  FavImg
 } from '../favorites/FavStyling';
+import heart from '../../images/heart.gif'
 
 export default class FavoritesPage extends Component {
   state = {
@@ -37,7 +39,7 @@ export default class FavoritesPage extends Component {
         <div>
         <FavNav></FavNav>
         <FavoriteContainer>
-          <FavH1>Your Favorites</FavH1>
+          <FavH1>Your Favorites<FavImg src={heart} alt="heart"></FavImg></FavH1>
           <FavoriteWrapper>        
             <FavoriteList
           mapFavorites={this.state.favoriteFoundation}/>

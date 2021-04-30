@@ -25,3 +25,11 @@ export const FavH1 = styled.h1`
     font-size: 1rem;
   }
 `;
+
+export const FavImg = styled.img`
+  width: 20px;
+  height:20px;
+  margin:10px;
+  margin-bottom: 20px;
+  }
+`;

@@ -53,13 +53,13 @@ export default class Foundation extends Component {
     return (
       <div className="foundation-box">
         <ul className="box">
-          <li>
+          {/* <li>
             <img
               className="foundation-img"
               src="https://media0.giphy.com/media/YMpAIvLyFVKVujy5bH/giphy.gif"
               alt="makeup"
             />
-          </li>
+          </li> */}
           <li>{this.props.foundationProp.name}</li>
           <li>
             <img
@@ -68,11 +68,6 @@ export default class Foundation extends Component {
               alt="product" onerror="this.src='fallback-img.jpg'"
             />
           </li>
-
-          <li>
-            <a href={this.props.foundationProp.product_link}>Buy Now!</a>
-          </li>
-
           <li>{this.props.foundationProp.brand}</li>
           <li>{this.props.foundationProp.color}</li>
           <li>
@@ -87,9 +82,9 @@ export default class Foundation extends Component {
               ❤️
             </button>
           </li>
-          <li>
+          {/* <li>
             <input type="button" onClick={this.handleFbPost} value="Share" />
-          </li>
+          </li> */}
         </ul>
       </div>
     );
