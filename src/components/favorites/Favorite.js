@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { Component } from 'react';
 
 export default class Favorite extends Component {
@@ -5,13 +6,6 @@ export default class Favorite extends Component {
     return (
       <div>
         <ul className="box">
-          <li>
-            <img
-              className="foundation-img"
-              src="https://media0.giphy.com/media/YMpAIvLyFVKVujy5bH/giphy.gif"
-              alt="makeup"
-            />
-          </li>
           <li>{this.props.favoriteProp.name}</li>
           <li>
             <img
@@ -28,6 +22,13 @@ export default class Favorite extends Component {
               className="color"
               disabled
             ></button>
+
+            {/* <button onClick={this.handleSubmit}>Like Button</button> */}
+          </li>
+          <li>
+            <a href={this.props.favoriteProp.product_link} target="_blank">
+              Buy Now!
+            </a>
           </li>{' '}
         </ul>
       </div>

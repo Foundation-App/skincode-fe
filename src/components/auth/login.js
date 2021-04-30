@@ -12,8 +12,13 @@ import {
   FormButton,
   FormImage
 } from './authStyling';
+<<<<<<< HEAD
 import logo from '../../images/skincodelogo.gif';
 import heart from '../../images/heart.gif';
+=======
+import logo from '../../images/skincodelogo.gif'
+import heart from '../../images/test.gif'
+>>>>>>> 40bb470dc16f446b10590d1ce2bf1f519e20a1f3
 
 export default class loginPage extends Component {
   state = {

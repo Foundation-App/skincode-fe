@@ -5,7 +5,6 @@ import styled from 'styled-components';
 export const Nav = styled.nav`
   background: transparent;
   height: 80px;
-  margin-top: -80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,6 +40,7 @@ export const NavLogo = styled(LinkR)`
   text-decoration: none;
 `;
 
+
 export const NavMenu = styled.ul`
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavLinks = styled(LinkR)`
-  color: white;
+  color: #F1D9B7;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -79,26 +79,26 @@ export const NavLinks = styled(LinkR)`
 
   &:hover {
     border-bottom: 3px solid #714137;
-    color: #e3b696;
+    color:  #E3B696;
   }
 `;
 
 export const NavBtnLink = styled(LinkR)`
   border-radius: 50px;
-  background: #e3b696;
+  background: #fff;
   white-space: nowrap;
   padding: 10px 22px;
-  color: #fff;
+  color: #714137;
   font-size: 16px;
   outline: none;
-  border: none;
+  border: 1px solid #714137;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
 
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #e3b696;
+    background: #714137;
+    color: #fff;
   }
 `;

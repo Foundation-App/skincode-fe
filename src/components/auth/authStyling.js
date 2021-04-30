@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 
 
 export const Container = styled.div`
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
   postion: fixed;
-  background-color: #FFFAFA;
+  background-color: #fff;
   
 `;
 
@@ -55,12 +54,12 @@ export const Form = styled.form`
   margin: 0 auto;
   padding: 50px 32px;
   border-radius: 4px;
-  background: #fff;
+  background: #FFF;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 backdrop-filter: blur( 20.0px );
 -webkit-backdrop-filter: blur( 20.0px );
 border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+
 
 @media screen and (max-width: 400px) {
   padding: 32px 32px;
@@ -78,7 +77,7 @@ export const FormH1 = styled.h1`
 export const FormLabel = styled.label`
   margin-bottom: 8px;
   font-size: 14px;
-  color: #E0AC69;
+  color: #DBA974;
   transition: all 0.5s ease-in-out;
 	font-size:16px;
   &:focus {
@@ -90,17 +89,18 @@ export const FormInput = styled.input`
   margin-bottom: 32px;
   width: 200px;
   outline:none;
-  border: none;
+  border-radius: 10px;
+  background: #FFF;
   border: 1px solid #714137;
   &:focus {
     outline:none;
     border:none;	
-    border:1px solid #E0AC69;
+    border:1px solid #DBA974;
   }
 `;
 
 export const FormButton = styled.button`
-  background:#fff;
+  background:#FFF;
   color:#C68642;
   position:relative;
   height:40px;
@@ -110,12 +110,12 @@ export const FormButton = styled.button`
   transition:800ms ease all;
   outline:none;
   margin-top: 20px;
-  border: 2px solid #714137;
+  border: 1px solid #714137;
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #714137;
     color: #fff;
-    border: 2px solid #fff;
+    border: 2px solid #FFF;
   }
   border-radius: 15px;
   
@@ -123,7 +123,7 @@ export const FormButton = styled.button`
 export const Text = styled.span`
   text-align: center;
   margin-top: 24px;
-  color: #E0AC69;
+  color: #DBA974;
   font-size: 14px;
 `;
 

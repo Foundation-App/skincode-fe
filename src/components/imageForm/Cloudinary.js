@@ -6,10 +6,11 @@ import {
 } from '../../apiUtils';
 
 import FoundationList from './FoundationList';
-import NavBar from '../HomePage/NavBar';
+import StepsNavBar from './StepsNav';
 import Icon3 from '../../images/logo3.gif';
 import Icon2 from '../../images/logo2.gif';
 import Icon1 from '../../images/logo1.gif';
+import upload from '../../images/upload.png';
 import {
   StepsContainer,
   StepsH1,
@@ -17,7 +18,9 @@ import {
   StepsCard,
   StepsIcon,
   StepsH2,
-  StepsP
+  StepsP,
+  StepsButton,
+  StepsImage
 } from './StepsStyling';
 
 export default class Cloudinary extends Component {
@@ -40,14 +43,14 @@ export default class Cloudinary extends Component {
         styles: {
           palette: {
             window: '#FFF',
-            windowBorder: '#90A0B3',
-            tabIcon: '#0E2F5A',
-            menuIcons: '#5A616A',
-            textDark: '#000000',
+            windowBorder: '#F1D9B7',
+            tabIcon: '#C68642',
+            menuIcons: '#F1D9B7',
+            textDark: '#FFF',
             textLight: '#FFFFFF',
-            link: '#0078FF',
+            link: '#F1D9B7',
             action: '#FF620C',
-            inactiveTabIcon: '#0E2F5A',
+            inactiveTabIcon: '#C68642',
             error: '#F44235',
             inProgress: '#0078FF',
             complete: '#20B832',
@@ -81,30 +84,29 @@ export default class Cloudinary extends Component {
   render() {
     return (
       <div>
-        <NavBar></NavBar>
+        <StepsNavBar></StepsNavBar>
         <StepsContainer id="Steps">
           <StepsH1>How it Works.</StepsH1>
           <StepsWrapper>
             <StepsCard>
               <StepsIcon src={Icon1} />
-              <StepsH2>We wanna see your selfies!</StepsH2>
+              <StepsH2>1) Take a selfie!</StepsH2>
               <StepsP>
-                We want to see that beautiful face. Use our image uploader to
-                either take a selfie, upload a selfie, or paste in a URL image.
+                We want to see that beautiful face!
                 Just make sure you're in natural lighting for accurate results.
               </StepsP>
             </StepsCard>
             <StepsCard>
               <StepsIcon src={Icon2} />
-              <StepsH2>Upload Image</StepsH2>
+              <StepsH2>2) Upload Your Image</StepsH2>
               <StepsP>
-                Once you feel like you've got the best picture. Go ahead and hit
-                upload and watch the magic unfold.
+                Once you feel like you've got the best picture. Go ahead and hit the
+                upload image below and watch the magic unfold.
               </StepsP>
             </StepsCard>
             <StepsCard>
               <StepsIcon src={Icon3} />
-              <StepsH2>Unlock your skincode</StepsH2>
+              <StepsH2>3) Unlock your skincode</StepsH2>
               <StepsP>
                 You've got a match! Feel free to favorite your best matches. If
                 there aren't any matches, start again and make sure you're
@@ -112,9 +114,10 @@ export default class Cloudinary extends Component {
               </StepsP>
             </StepsCard>
           </StepsWrapper>
-          <button className="upload" onClick={this.showWidget}>
-            Upload Image
-          </button>
+          <StepsButton onClick={this.showWidget}>
+            <StepsImage src={upload} alt="upload"></StepsImage>
+              <StepsP>Upload Here!</StepsP>
+          </StepsButton>
           <FoundationList mapFoundations={this.state.bestFoundations} />
           <FoundationList mapFoundations={this.state.goodFoundations} />
         </StepsContainer>
