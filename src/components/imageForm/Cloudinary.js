@@ -65,19 +65,20 @@ export default class Cloudinary extends Component {
           });
 
           postImage(result.info.url).then((makeupData) => {
-            if (makeupData.length > 0) {
+ 
+             if (makeupData.length < 1) { 
+              alert('Oops! No foundations found. Please take a look at our instructions, and try again!')
+            } else if (makeupData[0].length < 1 && makeupData[1].length < 1) {
               
+              alert('Oops! No foundations found. Please take a look at our instructions, and try again!')
+            } else if (makeupData[0].length > 1 ) {
               this.setState({
                 bestFoundations: makeupData[0],
                 goodFoundations: makeupData[1],
                 loading: false
               });
-              
-            } else {
-              alert('there were no foundations found, please try again with another picture')
-            } 
-          });
-
+            }
+          })
           putCloudinaryInLocalStorage(this.state.cloudinary);
           putDateInLocalStorage(this.state.date);
         }
