@@ -7,14 +7,16 @@ import Logout from './components/auth/logout';
 import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
-// import PrivateRoute from './components/auth/PrivateRoute'
-import { getUserFromLocalStorage, putUserInLocalStorage } from './apiUtils';
+import PrivateRoute from './components/auth/PrivateRoute'
+import { getUserFromLocalStorage, putUserInLocalStorage, verifyUser } from './apiUtils';
 
 
 
 export default class App extends Component {
   state = {
-    user: getUserFromLocalStorage()
+    user: null,
+    authError: '',
+    authLoading: true
   };
 
   handleUserChange = (user) => {
@@ -29,8 +31,22 @@ export default class App extends Component {
     // saveCookies.clear
   };
 
+  componentDidMount = () => { 
+    this.setState({ authLoading: true})
+    verifyUser()
+      .then(user => this.setState({
+        user, 
+        loading: false
+      }))
+      .catch(authError => {
+        this.setState({ authError: authError.message })
+        console.log(authError.message)
+    })
+      
+  }
+
   render() {
-    // const { user } = this.state;
+ 
     return (
       <div>
         <Router>
@@ -60,17 +76,19 @@ export default class App extends Component {
                exact
                render={(routerProps) => <Logout {...routerProps}/>} 
             />
-            {/* <PrivateRoute
-                 path='/myfavorites' 
+            <PrivateRoute
                  exact
+                 path='/myfavorites' 
                  render={(routerProps) => <FavoritesPage {...routerProps} />} 
-                //  user={this.state.user}
-              /> */}
-            <Route
+                user={this.state.user}
+                error={this.state.authError}
+                loading={this.state.authLoading}
+              />
+            {/* <Route
               path="/myfavorites"
               exact
               render={(routerProps) => <FavoritesPage {...routerProps} />}
-            />
+            /> */}
           </Switch>
         </Router>
       </div>
