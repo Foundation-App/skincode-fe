@@ -10,6 +10,7 @@ import {
 } from '../favorites/FavStyling';
 import heart from '../../images/heart.gif';
 
+
 export default class FavoritesPage extends Component {
   state = {
     favoriteFoundation: [],
@@ -21,7 +22,6 @@ export default class FavoritesPage extends Component {
     this.setState({
       loading: true
     });
-
     const getFoundationFaves = await getFavoritesById(this.state.userId.id);
 
     this.setState({
@@ -35,11 +35,11 @@ export default class FavoritesPage extends Component {
       <div>
         <FavNav></FavNav>
         <FavoriteContainer>
-          <FavH1>
-            Your Favorites<FavImg src={heart} alt="heart"></FavImg>
-          </FavH1>
-          <FavoriteWrapper>
-            <FavoriteList mapFavorites={this.state.favoriteFoundation} />
+          <FavH1>Your Favorites<FavImg src={heart} alt="heart"></FavImg></FavH1>
+          <FavoriteWrapper>        
+            <FavoriteList
+          mapFavorites={this.state.favoriteFoundation}
+          loading={this.state.loading}/>
           </FavoriteWrapper>
         </FavoriteContainer>
       </div>

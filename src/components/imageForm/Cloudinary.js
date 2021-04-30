@@ -33,7 +33,7 @@ export default class Cloudinary extends Component {
   };
 
   showWidget = () => {
-    this.setState({ foundations: [] });
+    this.setState({ bestFoundations: [], goodFoundations: [] });
     let widget = window.cloudinary.createUploadWidget(
       {
         cloudName: `skincode`,
@@ -66,11 +66,16 @@ export default class Cloudinary extends Component {
 
           postImage(result.info.url).then((makeupData) => {
             if (makeupData.length > 0) {
+              
               this.setState({
                 bestFoundations: makeupData[0],
-                goodFoundations: makeupData[1]
+                goodFoundations: makeupData[1],
+                loading: false
               });
-            } else alert('no face detected, please try again');
+              
+            } else {
+              alert('there were no foundations found, please try again with another picture')
+            } 
           });
 
           putCloudinaryInLocalStorage(this.state.cloudinary);
@@ -118,8 +123,10 @@ export default class Cloudinary extends Component {
             <StepsImage src={upload} alt="upload"></StepsImage>
               <StepsP>Upload Here!</StepsP>
           </StepsButton>
-          <FoundationList mapFoundations={this.state.bestFoundations} />
-          <FoundationList mapFoundations={this.state.goodFoundations} />
+          <FoundationList mapFoundations={this.state.bestFoundations}
+          loading={this.props.loading}/>
+          <FoundationList mapFoundations={this.state.goodFoundations}
+           loading={this.props.loading}/>
         </StepsContainer>
       </div>
     );

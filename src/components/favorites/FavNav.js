@@ -4,9 +4,8 @@ import {
   Nav,
   NavbarContainer,
   NavLogo,
-  NavBtn,
-  NavBtnLink,
 } from './NavStyling';
+import LogOutPage from '../auth/LogOutPage'
 
 function FavNav() {
  
@@ -17,9 +16,7 @@ function FavNav() {
             <NavLogo to='/'>
             <img className="logo" src={logo} alt="logo"></img>
             </NavLogo>
-            <NavBtn>
-              <NavBtnLink to='/logout'>Logout</NavBtnLink>
-            </NavBtn>
+            <LogOutPage/>
           </NavbarContainer>
         </Nav>
     </>

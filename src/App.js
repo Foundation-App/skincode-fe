@@ -3,13 +3,14 @@ import './App.css';
 import Cloudinary from './components/imageForm/Cloudinary';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Login from './components/auth/login';
-import Logout from './components/auth/logout';
+import Logout from './components/auth/LogOutPage';
 import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
-import PrivateRoute from './components/auth/PrivateRoute';
+import PrivateRoute from './components/auth/PrivateRoute'
 import { putUserInLocalStorage, verifyUser } from './apiUtils';
-//please work
+
+
 
 export default class App extends Component {
   state = {
@@ -76,18 +77,13 @@ export default class App extends Component {
               render={(routerProps) => <Logout {...routerProps} />}
             />
             <PrivateRoute
-              exact
-              path="/myfavorites"
-              render={(routerProps) => <FavoritesPage {...routerProps} />}
-              user={this.state.user}
-              error={this.state.authError}
-              loading={this.state.authLoading}
-            />
-            {/* <Route
-              path="/myfavorites"
-              exact
-              render={(routerProps) => <FavoritesPage {...routerProps} />}
-            /> */}
+                 exact
+                 path='/myfavorites' 
+                 render={(routerProps) => <FavoritesPage {...routerProps} />} 
+                user={this.state.user}
+                error={this.state.authError}
+                loading={this.state.authLoading}
+              />
           </Switch>
         </Router>
       </div>
@@ -95,10 +91,5 @@ export default class App extends Component {
   }
 }
 
-// <PrivateRoute
-// path="/playlist"
-// exact
-// token={user && user.token}
-// render={(routerProps) => <Playlist {...routerProps} />}
-// user={this.state.user}
-// />
+
+

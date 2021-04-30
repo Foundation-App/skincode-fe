@@ -2,10 +2,8 @@ import request from 'superagent';
 
 //hello
 // const localURL = 'http://localhost:7894';
-// const localURL = 'https://skincode123.herokuapp.com';
-const localURL = 'https://heroku-skincodebe.herokuapp.com';
-
-
+// const localURL = 'https://skincodebe.herokuapp.com';
+const localURL = 'https://skincode-backend.herokuapp.com'
 
 export async function getTest() {
   const response = await request.get(`${localURL}/test`);
@@ -133,8 +131,8 @@ export function getUserFromLocalStorage() {
   return user;
 }
 
-export function verifyUser() {
-  return fetch('https://skincodebe.herokuapp.com/auth/verify', {
+export function verifyUser() { 
+  return fetch(`${localURL}/auth/verify`, {
     credentials: 'include'
   })
     .then((res) => Promise.all([res.ok, res.json()]))
