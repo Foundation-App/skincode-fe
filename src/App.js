@@ -9,6 +9,7 @@ import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
 import PrivateRoute from './components/auth/PrivateRoute';
 import { putUserInLocalStorage, verifyUser } from './apiUtils';
+//please work
 
 export default class App extends Component {
   state = {
