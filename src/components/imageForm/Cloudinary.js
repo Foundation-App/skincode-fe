@@ -100,8 +100,7 @@ export default class Cloudinary extends Component {
               <StepsIcon src={Icon1} />
               <StepsH2>1) Take a selfie!</StepsH2>
               <StepsP>
-                We want to see that beautiful face. Use our image uploader to
-                either take a selfie, upload a selfie, or paste in a URL image.
+                We want to see that beautiful face!
                 Just make sure you're in natural lighting for accurate results.
               </StepsP>
             </StepsCard>

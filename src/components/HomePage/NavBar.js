@@ -1,5 +1,4 @@
 import React from 'react';
-import { IconContext } from 'react-icons/lib';
 import logo from '../../images/skincodelogo.gif'
 import {
   Nav,

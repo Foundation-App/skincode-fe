@@ -73,6 +73,8 @@ export const StepsH2 = styled.h2`
 export const StepsP = styled.p`
   font-size: 1rem;
   text-align: center;
+  line-height: 1.5em;
+  font-weight: 200;
 `;
 
 export const StepsButton = styled.button`
