@@ -32,17 +32,17 @@ export default class App extends Component {
   };
 
   componentDidMount = () => { 
+    this.setState({user: null })
     this.setState({ authLoading: true})
     verifyUser()
       .then(user => this.setState({
-        user, 
-        loading: false
+        user
       }))
       .catch(authError => {
-        this.setState({ authError: authError.message })
+        this.setState({ authError: authError.message})
         console.log(authError.message)
     })
-      
+      .finally(() => this.setState({authLoading: false}))
   }
 
   render() {
