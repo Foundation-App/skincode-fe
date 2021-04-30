@@ -41,7 +41,6 @@ export const NavLogo = styled(LinkR)`
   text-decoration: none;
 `;
 
-
 export const NavMenu = styled.ul`
   display: flex;
   align-items: center;
@@ -80,13 +79,13 @@ export const NavLinks = styled(LinkR)`
 
   &:hover {
     border-bottom: 3px solid #714137;
-    color:  #E3B696;
+    color: #e3b696;
   }
 `;
 
 export const NavBtnLink = styled(LinkR)`
   border-radius: 50px;
-  background: #E3B696;
+  background: #e3b696;
   white-space: nowrap;
   padding: 10px 22px;
   color: #fff;
@@ -100,6 +99,6 @@ export const NavBtnLink = styled(LinkR)`
   &:hover {
     transition: all 0.2s ease-in-out;
     background: #fff;
-    color: #E3B696;
+    color: #e3b696;
   }
 `;

@@ -6,9 +6,9 @@ import {
   Icon,
   FormContent,
   Form,
-  FormButton,
+  FormButton
 } from './authStyling';
-import logo from '../../images/skincodelogo.gif'
+import logo from '../../images/skincodelogo.gif';
 
 export default class logoutPage extends Component {
   state = {
@@ -17,44 +17,32 @@ export default class logoutPage extends Component {
     userlogout: getUserFromLocalStorage()
   };
 
-
-//LOGOUTTTTTTT======
   onLogOutSubmit = async (e) => {
     e.preventDefault();
 
-    console.log('are you here?')
-
-      await logout();
-
-      localStorage.clear();
-
-      window.location.replace('/findmyskincode');
-  
+    await logout();
+    localStorage.clear();
+    window.location.replace('/findmyskincode');
   };
 
-
-
-
   render() {
-
     return (
       <div>
-
-          <Container>
-            <FormWrap>
-              <Icon to='/'>
-                <img className="logo" src={logo} alt="logo"></img></Icon>
-              <FormContent>
-                <Form action='#'>
-                  <FormButton type='submit' onClick={this.onLogOutSubmit} >LOGOUT</FormButton>
-                </Form>
-              </FormContent>
-            </FormWrap>
-          </Container>
-          </div>
+        <Container>
+          <FormWrap>
+            <Icon to="/">
+              <img className="logo" src={logo} alt="logo"></img>
+            </Icon>
+            <FormContent>
+              <Form action="#">
+                <FormButton type="submit" onClick={this.onLogOutSubmit}>
+                  LOGOUT
+                </FormButton>
+              </Form>
+            </FormContent>
+          </FormWrap>
+        </Container>
+      </div>
     );
   }
 }
-
-
-// document.cookie = 'COOKIE_NAME=; Max-Age=0; path=/; domain=' + location.host;
