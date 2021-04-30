@@ -84,6 +84,7 @@ export default class signupPage extends Component {
             </Icon>
             <FormContent>
 <<<<<<< HEAD
+<<<<<<< HEAD
               <Form action="#">
                 <FormImage src={heart} alt="heart"></FormImage>
                 <FormH1>Sign Up for an account</FormH1>
@@ -111,6 +112,9 @@ export default class signupPage extends Component {
                 {error_comp}
 =======
               <Form action='#'>
+=======
+                <Form action='#'>
+>>>>>>> b39e639a64f7c49ad1a84e3a028ba7822b192fcc
                     <FormImage src={heart} alt="heart"></FormImage>
                     <FormH1>Sign up for an account</FormH1>
                     <FormLabel>Name</FormLabel>
@@ -121,7 +125,10 @@ export default class signupPage extends Component {
                     <FormInput onChange={this.handlePasswordChange}type='password' required />
                     <FormButton type='submit' onClick={this.onSignupSubmit} >Sign Up!</FormButton>
                     {error_comp}
+<<<<<<< HEAD
 >>>>>>> 40bb470dc16f446b10590d1ce2bf1f519e20a1f3
+=======
+>>>>>>> b39e639a64f7c49ad1a84e3a028ba7822b192fcc
               </Form>
             </FormContent>
           </FormWrap>

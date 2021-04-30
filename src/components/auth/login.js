@@ -13,12 +13,19 @@ import {
   FormImage
 } from './authStyling';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import logo from '../../images/skincodelogo.gif';
 import heart from '../../images/heart.gif';
 =======
 import logo from '../../images/skincodelogo.gif'
 import heart from '../../images/test.gif'
 >>>>>>> 40bb470dc16f446b10590d1ce2bf1f519e20a1f3
+=======
+
+import logo from '../../images/skincodelogo.gif'
+import heart from '../../images/test.gif'
+
+>>>>>>> b39e639a64f7c49ad1a84e3a028ba7822b192fcc
 
 export default class loginPage extends Component {
   state = {
