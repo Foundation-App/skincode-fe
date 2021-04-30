@@ -128,7 +128,7 @@ export function getUserFromLocalStorage() {
 }
 
 export function verifyUser() { 
-  return fetch('https://skincode123.herokuapp.com', {
+  return fetch(`${localURL}/auth/verify`, {
     credentials: 'include'
   })
   .then(res => Promise.all([res.ok, res.json()]))
