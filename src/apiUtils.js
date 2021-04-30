@@ -127,13 +127,13 @@ export function getUserFromLocalStorage() {
   return user;
 }
 
-export function verifyUser() { 
-  return fetch('http://localhost:7894/auth/verify', {
+export function verifyUser() {
+  return fetch('https://skincodebe.herokuapp.com/auth/verify', {
     credentials: 'include'
   })
-  .then(res => Promise.all([res.ok, res.json()]))
-          .then(([ok, json]) => {
-              if (!ok) throw json;
-              return json;
-          })
+    .then((res) => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if (!ok) throw json;
+      return json;
+    });
 }
