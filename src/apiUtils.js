@@ -1,5 +1,6 @@
 import request from 'superagent';
 
+//hello
 // const localURL = 'http://localhost:7894';
 // const localURL = 'https://skincode123.herokuapp.com';
 const localURL = 'https://heroku-skincodebe.herokuapp.com';
@@ -132,13 +133,13 @@ export function getUserFromLocalStorage() {
   return user;
 }
 
-export function verifyUser() { 
-  return fetch(`${localURL}/auth/verify`, {
+export function verifyUser() {
+  return fetch('https://skincodebe.herokuapp.com/auth/verify', {
     credentials: 'include'
   })
-  .then(res => Promise.all([res.ok, res.json()]))
-          .then(([ok, json]) => {
-              if (!ok) throw json;
-              return json;
-          })
+    .then((res) => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if (!ok) throw json;
+      return json;
+    });
 }
