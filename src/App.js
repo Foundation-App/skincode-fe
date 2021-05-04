@@ -8,6 +8,7 @@ import Signup from './components/auth/signup';
 import FavoritesPage from './components/favorites/FavoritesPage';
 import HomePage from './components/HomePage/HomePage';
 import PrivateRoute from './components/auth/PrivateRoute'
+import About from './components/About/About'
 import { putUserInLocalStorage, verifyUser } from './apiUtils';
 
 
@@ -74,6 +75,11 @@ export default class App extends Component {
               path="/logout"
               exact
               render={(routerProps) => <Logout {...routerProps} />}
+            />
+            <Route 
+               path="/about" 
+               exact
+               render={(routerProps) => <About {...routerProps}/>} 
             />
             <PrivateRoute
                  exact
