@@ -4,7 +4,7 @@ import request from 'superagent';
 // const localURL = 'http://localhost:7894';
 // const localURL = 'https://skincodebe.herokuapp.com';
 //const localURL = 'https://skincode-backend.herokuapp.com';
-const localURL = 'https://skincode1.herokuapp.com';
+const localURL = 'https://skincode1.herokuapp.com/';
 
 
 export async function getTest() {
@@ -14,7 +14,7 @@ export async function getTest() {
 
 export async function postImage(photo, token) {
   const response = await request
-    .post(`${localURL}/imageurl`)
+    .post(`${localURL}imageurl`)
     .set('Authorization', token)
     .send([{ input: photo }]);
 
@@ -23,7 +23,7 @@ export async function postImage(photo, token) {
 
 export async function postAuthImage(photo) {
   const response = await request
-    .post(`${localURL}/api/imageurl`)
+    .post(`${localURL}api/imageurl`)
     .withCredentials()
     .send([{ input: photo }]);
 
@@ -32,7 +32,7 @@ export async function postAuthImage(photo) {
 
 export async function login(email, password, token) {
   const response = await request
-    .post(`${localURL}/auth/login`)
+    .post(`${localURL}auth/login`)
     .withCredentials()
     .set('Authorization', token)
     .send({ email, password });
@@ -41,12 +41,12 @@ export async function login(email, password, token) {
 }
 
 export async function logout() {
-  await request.post(`${localURL}/auth/logout`).withCredentials();
+  await request.post(`${localURL}auth/logout`).withCredentials();
 }
 
 export async function signup(name, email, password, token) {
   const response = await request
-    .post(`${localURL}/auth/signup`)
+    .post(`${localURL}auth/signup`)
     .withCredentials()
     .set('Authorization', token)
     .send({ name, email, password });
@@ -92,7 +92,7 @@ export async function postFavorites(
   date_added
 ) {
   const response = await request
-    .post(`${localURL}/api/favorites`)
+    .post(`${localURL}api/favorites`)
     .withCredentials()
     .set('Accept', 'application/json')
     .send({
@@ -111,7 +111,7 @@ export async function postFavorites(
 
 export async function getFavorites() {
   const response = await request
-    .get(`${localURL}/api/favorites`)
+    .get(`${localURL}api/favorites`)
     .withCredentials();
 
   return response.body;
@@ -119,7 +119,7 @@ export async function getFavorites() {
 
 export async function getFavoritesById(id) {
   const response = await request
-    .get(`${localURL}/api/favorites/${id}`)
+    .get(`${localURL}api/favorites/${id}`)
     .withCredentials();
 
   return response.body;
@@ -133,13 +133,13 @@ export function getUserFromLocalStorage() {
   return user;
 }
 
-// export function verifyUser() { 
-//   return fetch(`${localURL}/auth/verify`, {
-//     credentials: 'include'
-//   })
-//     .then((res) => Promise.all([res.ok, res.json()]))
-//     .then(([ok, json]) => {
-//       if (!ok) throw json;
-//       return json;
-//     });
-// }
+export function verifyUser() { 
+  return fetch(`${localURL}auth/verify`, {
+    credentials: 'include'
+  })
+    .then((res) => Promise.all([res.ok, res.json()]))
+    .then(([ok, json]) => {
+      if (!ok) throw json;
+      return json;
+    });
+}
