@@ -133,13 +133,13 @@ export function getUserFromLocalStorage() {
   return user;
 }
 
-export function verifyUser() { 
-  return fetch(`${localURL}/auth/verify`, {
-    credentials: 'include'
-  })
-    .then((res) => Promise.all([res.ok, res.json()]))
-    .then(([ok, json]) => {
-      if (!ok) throw json;
-      return json;
-    });
-}
+// export function verifyUser() { 
+//   return fetch(`${localURL}/auth/verify`, {
+//     credentials: 'include'
+//   })
+//     .then((res) => Promise.all([res.ok, res.json()]))
+//     .then(([ok, json]) => {
+//       if (!ok) throw json;
+//       return json;
+//     });
+// }
