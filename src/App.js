@@ -32,7 +32,21 @@ export default class App extends Component {
     // saveCookies.clear
   };
 
-  componentDidMount = () => { 
+  // componentDidMount = () => { 
+  //   this.setState({user: null })
+  //   this.setState({ authLoading: true})
+  //   verifyUser()
+  //     .then(user => this.setState({
+  //       user
+  //     }))
+  //     .catch(authError => {
+  //       this.setState({ authError: authError.message})
+  //       console.log(authError.message)
+  //   })
+  //     .finally(() => this.setState({authLoading: false}))
+  // }
+
+  verifyUser = () => { 
     this.setState({user: null })
     this.setState({ authLoading: true})
     verifyUser()
