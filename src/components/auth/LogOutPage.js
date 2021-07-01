@@ -16,7 +16,8 @@ export default class LogOutPage extends Component {
     e.preventDefault();
     await logout();
     localStorage.clear();
-    window.location.replace('/');
+    alert('you are looged out');
+    // window.location.replace('/');
   };
 
   render() {
