@@ -1,4 +1,6 @@
 import React from 'react';
+import Navbar from '../NavBar-social/NavBar';
+
 import {
   FooterContainer,
   FooterWrap,
@@ -17,6 +19,7 @@ const Footer = () => {
             <Logo>
               SkinCode()
             </Logo>
+            <Navbar/>
             <WebsiteRights>SkinCode() © 2021 All rights reserved.</WebsiteRights>
           </FooterContentsWrap>
         </FooterContents>
