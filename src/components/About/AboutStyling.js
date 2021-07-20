@@ -6,7 +6,7 @@ export const AboutContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: #FFF;
+  // background: #FFF;
   height: 100%;
   @media screen and (max-width: 768px) {
     height: 1100px;
@@ -36,31 +36,33 @@ export const AboutWrapper = styled.div`
 `;
 
 export const AboutCard = styled.div`
-  background: #fff;
+  // background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  // border-radius: 10px;
   height: 340px;
   width: 500px;
-  padding: 40px;
-  margin: 20px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  // padding: 40px;
+  // margin: 20px;
+  // box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   transition: all 0.2s ease-in-out;
 `;
 
 export const AboutIcon = styled.img`
-  height: 160px;
-  width: 160px;
-  margin-bottom: 10px;
-  border-radius: 90px;
+   height: 50%;
+   border-radius: 10px;
+  // height: 160px;
+  // width: 160px;
+  // margin-bottom: 10px;
+  // border-radius: 90px;
 `;
 
 export const AboutH1 = styled.h1`
   font-size: 2.5rem;
   color: #C68642;
-  margin: 50px;
+  // margin: 50px;
   @media screen and (max-width: 480px) {
     font-size: 1rem;
   }
@@ -75,7 +77,7 @@ export const AboutP = styled.p`
   font-size: 1rem;
   text-align: center;
   line-height: 1.5em;
-  font-weight: 200;
+  // font-weight: 200;
 `;
 
 export const AboutButton = styled.button`
@@ -91,7 +93,7 @@ export const AboutButton = styled.button`
 
 export const AboutImage= styled.img`
   border:none;
-  border-radius: 20px;
+  // border-radius: 20px;
   background: transparent;
   width: 100px;
   height: 100px;

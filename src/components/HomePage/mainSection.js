@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './NavBar-social/NavBar';
+// import Navbar from './NavBar-social/NavBar';
 import {
   MainContainer,
   MainBg,
@@ -32,7 +32,7 @@ function MainSection() {
         <MainBtnLink to="/signup" className="main">
           Get Started!
         </MainBtnLink>
-        <Navbar/>
+        {/* <Navbar/> */}
       </MainContent>
     </MainContainer>
   );
