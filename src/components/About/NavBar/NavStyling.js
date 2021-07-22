@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export const Nav = styled.nav`
   background: transparent;
-  // background-color: red;
+  // background-color: beige;
   height: 80px;
   margin-top: -80px;
   display: flex;
@@ -69,7 +69,7 @@ export const NavBtn = styled.nav`
 `;
 
 export const NavLinks = styled(LinkR)`
-  color: white;
+  color: #e3b696;
   display: flex;
   align-items: center;
   text-decoration: none;
